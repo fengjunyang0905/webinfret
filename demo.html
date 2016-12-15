@@ -1,358 +1,450 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Web Information Retrival and Data Mining</title>
+  <title>Web Information Retrival and Data Mining</title>
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="css/green.css" rel="stylesheet">
-    <!-- bootstrap-progressbar -->
-    <link href="css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- jVectorMap -->
-    <link href="css/jquery-jvectormap-2.0.3.css" rel="stylesheet"/>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <!-- iCheck -->
+  <link href="css/green.css" rel="stylesheet">
+  <!-- bootstrap-progressbar -->
+  <link href="css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+  <!-- jVectorMap -->
+  <link href="css/jquery-jvectormap-2.0.3.css" rel="stylesheet"/>
 
-    <!-- Custom Theme Style -->
-    <link href="css/custom.min.css" rel="stylesheet">
-  </head>
+  <!-- Custom Theme Style -->
+  <link href="css/custom.min.css" rel="stylesheet">
+</head>
 
-  <body class="nav-md">
-    <div class="container body">
-      <div class="main_container">
-        <div class="row">
-          <!--第一行第一列-->
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <div class="x_panel tile fixed_height_320 overflow_hidden">
-              <div class="x_title">
-                <h2>Pie Chart</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+<body class="nav-md">
+<div class="container body">
+  <div class="main_container">
+    <div class="row">
+      <!--第一行第一列-->
+      <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="x_panel tile fixed_height_320 overflow_hidden">
+          <div class="x_title">
+            <h2>Pie Chart</h2>
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Settings 1</a>
                   </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Settings 1</a>
-                      </li>
-                      <li><a href="#">Settings 2</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                  <li><a href="#">Settings 2</a>
                   </li>
                 </ul>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                <table class="" style="width:100%">
-                  <tr>
-                    <th style="width:37%;">
-                      <p>Percentage of Rumors</p>
-                    </th>
-                    <th>
-
-                    </th>
-                  </tr>
-                  <tr>
-                    <td>
-                      <canvas id="canvas1" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
-                    </td>
-                    <!--<td>
-                      <table class="tile_info">
-                        <tr>
-                          <td>
-                            <p><i class="fa fa-square blue"></i>涉及文章的数量： </p>
-                          </td>
-                          <td>2000</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <p><i class="fa fa-square purple"></i>XX的比例 </p>
-                          </td>
-                          <td>8999</td>
-                        </tr>
-                      </table>
-                    </td>-->
-                    <td>
-                      <table class="tile_info">
-                        <tbody><tr>
-                          <td>
-                            <p><i class="fa fa-square red"></i>Rumor </p>
-                          </td>
-                          <td>30%</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <p><i class="fa fa-square green"></i>Not Rumor</p>
-                          </td>
-                          <td>40%</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <p><i class="fa fa-square purple"></i>Impossible Rumor </p>
-                          </td>
-                          <td>30%</td>
-                        </tr>
-                        </tbody></table>
-                    </td>
-                  </tr>
-                </table>
-              </div>
-            </div>
+              </li>
+              <li><a class="close-link"><i class="fa fa-close"></i></a>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
           </div>
-          <!--第一行第二列-->
-          <div class="col-md-8 col-sm-8 col-xs-12">
-            <div class="x_panel tile fixed_height_320">
-              <div class="x_title">
-                <h2>Relative Information</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Settings 1</a>
-                      </li>
-                      <li><a href="#">Settings 2</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li><a class="close-link"><i class="fa fa-close"></i></a>
-                  </li>
-                </ul>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                <div class="widget_summary">
-                  <div class="w_left w_25">
+          <div class="x_content">
+            <table class="" style="width:100%">
+              <tr>
+                <th style="width:37%;">
+                  <p>Percentage of Rumors</p>
+                </th>
+                <th>
 
-                  </div>
-                  <div class="w_center w_55">
-
-                  </div>
-                  <div class="w_right w_20">
-
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="widget_summary">
-                  <div class="w_left w_25">
-                    <span>Amount of Rumor</span>
-                  </div>
-                  <div class="w_center w_55">
-                    <div class="progress">
-                      <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 66%;">
-                        <span class="sr-only">60% Complete</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="w_right w_20">
-                    <span>123条</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="widget_summary">
-                  <div class="w_left w_25">
-                    <span>Amount of Not Rumor</span>
-                  </div>
-                  <div class="w_center w_55">
-                    <div class="progress">
-                      <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
-                        <span class="sr-only">60% Complete</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="w_right w_20">
-                    <span>53条</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="widget_summary">
-                  <div class="w_left w_25">
-                    <span>Amount of Impossible Rumor</span>
-                  </div>
-                  <div class="w_center w_55">
-                    <div class="progress">
-                      <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
-                        <span class="sr-only">60% Complete</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="w_right w_20">
-                    <span>23条</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="widget_summary">
-                  <div class="w_left w_25">
-                    <span>Amount of Relative Twitter</span>
-                  </div>
-                  <div class="w_center w_55">
-                    <div class="progress">
-                      <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 15%;">
-                        <span class="sr-only">20% Complete</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="w_right w_20">
-                    <span>13条</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="widget_summary">
-                  <div class="w_left w_25">
-                    <span>Amount of Relative Article</span>
-                  </div>
-                  <div class="w_center w_55">
-                    <div class="progress">
-                      <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 85%;">
-                        <span class="sr-only">80% Complete</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="w_right w_20">
-                    <span>153条</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
-
-
-              </div>
-            </div>
+                </th>
+              </tr>
+              <tr>
+                <td>
+                  <canvas id="canvas1" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
+                </td>
+                <!--<td>
+                  <table class="tile_info">
+                    <tr>
+                      <td>
+                        <p><i class="fa fa-square blue"></i>涉及文章的数量： </p>
+                      </td>
+                      <td>2000</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><i class="fa fa-square purple"></i>XX的比例 </p>
+                      </td>
+                      <td>8999</td>
+                    </tr>
+                  </table>
+                </td>-->
+                <td>
+                  <table class="tile_info">
+                    <tbody><tr>
+                      <td>
+                        <p><i class="fa fa-square red"></i>Rumor </p>
+                      </td>
+                      <td>30%</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><i class="fa fa-square green"></i>Not Rumor</p>
+                      </td>
+                      <td>40%</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><i class="fa fa-square purple"></i>Impossible Rumor </p>
+                      </td>
+                      <td>30%</td>
+                    </tr>
+                    </tbody></table>
+                </td>
+              </tr>
+            </table>
           </div>
         </div>
+      </div>
+      <!--第一行第二列-->
+      <div class="col-md-8 col-sm-8 col-xs-12">
+        <div class="x_panel tile fixed_height_320">
+          <div class="x_title">
+            <h2>Relative Information</h2>
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Settings 1</a>
+                  </li>
+                  <li><a href="#">Settings 2</a>
+                  </li>
+                </ul>
+              </li>
+              <li><a class="close-link"><i class="fa fa-close"></i></a>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <div class="widget_summary">
+              <div class="w_left w_25">
 
-
-        <!--第二行-->
-        <div class="row ">
-          <div class="col-md-12">
-            <div class="x_panel">
-              <div class="x_title">
-                <h2>The Most Popular Hashtag for Everyday </h2>
-                <div class="clearfix"></div>
               </div>
-              <div class="x_content">
-                <!--折线图
-                <div class="col-md-6 col-sm-12 col-xs-12">
-                  <div class="demo-container" style="height:280px">
-                    <div id="placeholder33x" class="demo-placeholder" style="padding: 0px; position: relative;"><canvas class="flot-base" width="900" height="280" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 900px; height: 280px;"></canvas><div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 63px; text-align: center;">17/11/16</div>
-                    <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 148px; text-align: center;">18/11/16</div>
-                    <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 232px; text-align: center;">19/11/16</div>
-                    <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 317px; text-align: center;">20/11/16</div>
-                    <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 401px; text-align: center;">21/11/16</div>
-                    <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 486px; text-align: center;">22/11/16</div>
-                    <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 570px; text-align: center;">23/11/16</div>
-                    <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 655px; text-align: center;">24/11/16</div>
-                    <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 739px; text-align: center;">25/11/16</div>
-                    <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 824px; text-align: center;">26/11/16</div></div>
+              <div class="w_center w_55">
+
+              </div>
+              <div class="w_right w_20">
+
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="widget_summary">
+              <div class="w_left w_25">
+                <span>Amount of Rumor</span>
+              </div>
+              <div class="w_center w_55">
+                <div class="progress">
+                  <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 66%;">
+                    <span class="sr-only">60% Complete</span>
+                  </div>
+                </div>
+              </div>
+              <div class="w_right w_20">
+                <span>123条</span>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="widget_summary">
+              <div class="w_left w_25">
+                <span>Amount of Not Rumor</span>
+              </div>
+              <div class="w_center w_55">
+                <div class="progress">
+                  <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
+                    <span class="sr-only">60% Complete</span>
+                  </div>
+                </div>
+              </div>
+              <div class="w_right w_20">
+                <span>53条</span>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="widget_summary">
+              <div class="w_left w_25">
+                <span>Amount of Impossible Rumor</span>
+              </div>
+              <div class="w_center w_55">
+                <div class="progress">
+                  <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
+                    <span class="sr-only">60% Complete</span>
+                  </div>
+                </div>
+              </div>
+              <div class="w_right w_20">
+                <span>23条</span>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="widget_summary">
+              <div class="w_left w_25">
+                <span>Amount of Relative Twitter</span>
+              </div>
+              <div class="w_center w_55">
+                <div class="progress">
+                  <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 15%;">
+                    <span class="sr-only">20% Complete</span>
+                  </div>
+                </div>
+              </div>
+              <div class="w_right w_20">
+                <span>13条</span>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="widget_summary">
+              <div class="w_left w_25">
+                <span>Amount of Relative Article</span>
+              </div>
+              <div class="w_center w_55">
+                <div class="progress">
+                  <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 85%;">
+                    <span class="sr-only">80% Complete</span>
+                  </div>
+                </div>
+              </div>
+              <div class="w_right w_20">
+                <span>153条</span>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--第二行-->
+    <div class="row ">
+      <div class="col-md-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>The Most Popular Hashtag for Everyday </h2>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <!--折线图
+            <div class="col-md-6 col-sm-12 col-xs-12">
+              <div class="demo-container" style="height:280px">
+                <div id="placeholder33x" class="demo-placeholder" style="padding: 0px; position: relative;"><canvas class="flot-base" width="900" height="280" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 900px; height: 280px;"></canvas><div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 63px; text-align: center;">17/11/16</div>
+                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 148px; text-align: center;">18/11/16</div>
+                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 232px; text-align: center;">19/11/16</div>
+                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 317px; text-align: center;">20/11/16</div>
+                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 401px; text-align: center;">21/11/16</div>
+                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 486px; text-align: center;">22/11/16</div>
+                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 570px; text-align: center;">23/11/16</div>
+                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 655px; text-align: center;">24/11/16</div>
+                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 739px; text-align: center;">25/11/16</div>
+                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 824px; text-align: center;">26/11/16</div></div>
+                <div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
+                <div class="flot-tick-label tickLabel" style="position: absolute; top: 245px; left: 14px; text-align: right;">0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 196px; left: 7px; text-align: right;">20</div>
+                <div class="flot-tick-label tickLabel" style="position: absolute; top: 147px; left: 7px; text-align: right;">40</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 98px; left: 7px; text-align: right;">60</div>
+                <div class="flot-tick-label tickLabel" style="position: absolute; top: 49px; left: 7px; text-align: right;">80</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 1px; left: 0px; text-align: right;">100</div></div></div>
+                <canvas class="flot-overlay" width="900" height="280" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 900px; height: 280px;"></canvas><div class="legend"><div style="position: absolute; width: 78px; height: 17px; top: -16px; right: 24px; opacity: 0.85; background-color: rgb(255, 255, 255);"> </div><table style="position:absolute;top:-16px;right:24px;;font-size:smaller;color:#3f3f3f"><tbody><tr><td class="legendColorBox"><div style="border:1px solid null;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(150,202,89);overflow:hidden"></div></div></td><td class="legendLabel">Email Sent&nbsp;&nbsp;</td></tr></tbody></table></div></div>
+              </div>
+
+            </div>
+            <!--柱状图
+            <div class="col-md-6 col-sm-12 col-xs-12">
+              <span class="sparkline_one" style="height: 160px; padding: 10px 25px;">
+                      <canvas  width="200" height="60" style="display: inline-block; vertical-align: middle; width: 94px; height: 30px;"></canvas>
+              </span>
+
+          </div>
+            -->
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="demo-container" style="height:280px">
+                <div id="placeholder33x" class="demo-placeholder" style="padding: 0px; position: relative;">
+                  <canvas class="flot-base" width="900" height="280" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 900px; height: 280px;"></canvas>
+                  <div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);">
+                    <div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
+                      <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 63px; text-align: center;">17/11/16</div>
+                      <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 148px; text-align: center;">19/11/16</div>
+                      <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 232px; text-align: center;">21/11/16</div>
+                      <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 317px; text-align: center;">23/11/16</div>
+                      <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 401px; text-align: center;">25/11/16</div>
+                      <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 486px; text-align: center;">27/11/16</div>
+                      <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 570px; text-align: center;">29/11/16</div>
+                      <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 655px; text-align: center;">01/12/16</div>
+                    </div>
                     <div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
-                    <div class="flot-tick-label tickLabel" style="position: absolute; top: 245px; left: 14px; text-align: right;">0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 196px; left: 7px; text-align: right;">20</div>
-                    <div class="flot-tick-label tickLabel" style="position: absolute; top: 147px; left: 7px; text-align: right;">40</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 98px; left: 7px; text-align: right;">60</div>
-                    <div class="flot-tick-label tickLabel" style="position: absolute; top: 49px; left: 7px; text-align: right;">80</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 1px; left: 0px; text-align: right;">100</div></div></div>
-                    <canvas class="flot-overlay" width="900" height="280" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 900px; height: 280px;"></canvas><div class="legend"><div style="position: absolute; width: 78px; height: 17px; top: -16px; right: 24px; opacity: 0.85; background-color: rgb(255, 255, 255);"> </div><table style="position:absolute;top:-16px;right:24px;;font-size:smaller;color:#3f3f3f"><tbody><tr><td class="legendColorBox"><div style="border:1px solid null;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(150,202,89);overflow:hidden"></div></div></td><td class="legendLabel">Email Sent&nbsp;&nbsp;</td></tr></tbody></table></div></div>
-                  </div>
-
-                </div>
-                <!--柱状图
-                <div class="col-md-6 col-sm-12 col-xs-12">
-                  <span class="sparkline_one" style="height: 160px; padding: 10px 25px;">
-                          <canvas  width="200" height="60" style="display: inline-block; vertical-align: middle; width: 94px; height: 30px;"></canvas>
-                  </span>
-
-              </div>
-                -->
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                  <div class="demo-container" style="height:280px">
-                    <div id="placeholder33x" class="demo-placeholder" style="padding: 0px; position: relative;">
-                        <canvas class="flot-base" width="900" height="280" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 900px; height: 280px;"></canvas>
-                        <div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);">
-                            <div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
-                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 63px; text-align: center;">17/11/16</div>
-                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 148px; text-align: center;">19/11/16</div>
-                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 232px; text-align: center;">21/11/16</div>
-                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 317px; text-align: center;">23/11/16</div>
-                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 401px; text-align: center;">25/11/16</div>
-                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 486px; text-align: center;">27/11/16</div>
-                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 570px; text-align: center;">29/11/16</div>
-                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 75px; top: 263px; left: 655px; text-align: center;">01/12/16</div>
-                            </div>
-                            <div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
-                            <div class="flot-tick-label tickLabel" style="position: absolute; top: 245px; left: 14px; text-align: right;">0</div>
-                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 196px; left: 7px; text-align: right;">20</div>
-                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 147px; left: 7px; text-align: right;">40</div>
-                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 98px; left: 7px; text-align: right;">60</div>
-                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 49px; left: 7px; text-align: right;">80</div>
-                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 1px; left: 0px; text-align: right;">100</div>
-                            </div>
-                        </div>
-                        <canvas class="flot-overlay" width="900" height="280" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 900px; height: 280px;"></canvas>
-                        <div class="legend">
-                            <div style="position: absolute; width: 78px; height: 17px; top: -16px; right: 24px; opacity: 0.85; background-color: rgb(255, 255, 255);"> </div>
-                            <table style="position:absolute;top:-16px;right:24px;;font-size:smaller;color:#3f3f3f">
-                                <tbody>
-                                <tr>
-                                    <td class="legendColorBox">
-                                        <div style="border:1px solid null;padding:1px">
-                                            <div style="width:4px;height:0;border:5px solid rgb(150,202,89);overflow:hidden"></div>
-                                        </div>
-                                    </td>
-                                    <td class="legendLabel">Email Sent&nbsp;&nbsp;</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                      <div class="flot-tick-label tickLabel" style="position: absolute; top: 245px; left: 14px; text-align: right;">0</div>
+                      <div class="flot-tick-label tickLabel" style="position: absolute; top: 196px; left: 7px; text-align: right;">20</div>
+                      <div class="flot-tick-label tickLabel" style="position: absolute; top: 147px; left: 7px; text-align: right;">40</div>
+                      <div class="flot-tick-label tickLabel" style="position: absolute; top: 98px; left: 7px; text-align: right;">60</div>
+                      <div class="flot-tick-label tickLabel" style="position: absolute; top: 49px; left: 7px; text-align: right;">80</div>
+                      <div class="flot-tick-label tickLabel" style="position: absolute; top: 1px; left: 0px; text-align: right;">100</div>
                     </div>
                   </div>
-
+                  <canvas class="flot-overlay" width="900" height="280" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 900px; height: 280px;"></canvas>
+                  <div class="legend">
+                    <div style="position: absolute; width: 78px; height: 17px; top: -16px; right: 24px; opacity: 0.85; background-color: rgb(255, 255, 255);"> </div>
+                    <table style="position:absolute;top:-16px;right:24px;;font-size:smaller;color:#3f3f3f">
+                      <tbody>
+                      <tr>
+                        <td class="legendColorBox">
+                          <div style="border:1px solid null;padding:1px">
+                            <div style="width:4px;height:0;border:5px solid rgb(150,202,89);overflow:hidden"></div>
+                          </div>
+                        </td>
+                        <td class="legendLabel">Email Sent&nbsp;&nbsp;</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
+              </div>
+
             </div>
           </div>
         </div>
-        </div>
+      </div>
+    </div>
 
 
-        <!--第三行-->
-        <div class="row " >
-          <div class="col-md-12 " >
-            <section class="panel panel-default">
-              <header class="panel-heading font-bold">Vertical bar</header>
-              <div class="panel-body">
-                <div id="flot-bar" style="height: 240px; padding: 0px; position: relative;">
-                    <canvas class="flot-base" width="593" height="240" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 593px; height: 240px;"></canvas>
-                    <div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);">
-                        <div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
-                            <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 222px; left: 46px; text-align: center;">10</div>
-                            <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 222px; left: 130px; text-align: center;">15</div>
-                            <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 222px; left: 214px; text-align: center;">20</div>
-                            <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 222px; left: 299px; text-align: center;">25</div>
-                            <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 222px; left: 383px; text-align: center;">30</div>
-                            <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 222px; left: 467px; text-align: center;">35</div>
-                            <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 222px; left: 551px; text-align: center;">40</div>
-                        </div>
-                        <div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
-                            <div class="flot-tick-label tickLabel" style="position: absolute; top: 208px; left: 14px; text-align: right;">0</div>
-                            <div class="flot-tick-label tickLabel" style="position: absolute; top: 166px; left: 7px; text-align: right;">25</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 125px; left: 7px; text-align: right;">50</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 83px; left: 7px; text-align: right;">75</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 42px; left: 0px; text-align: right;">100</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 0px; left: 0px; text-align: right;">125</div></div></div><canvas class="flot-overlay" width="593" height="240" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 593px; height: 240px;"></canvas><div class="legend"><div style="position: absolute; width: 64px; height: 54px; right: 13px; opacity: 0.85; background-color: rgb(255, 255, 255);"> </div><table style="position:absolute;right:13px;;font-size:smaller;color:#545454"><tbody><tr><td class="legendColorBox"><div style="border:1px solid none;padding:1px"><div style="width:4px;height:0;border:5px solid #6783b7;overflow:hidden"></div></div></td><td class="legendLabel">Product 1</td></tr><tr><td class="legendColorBox"><div style="border:1px solid none;padding:1px"><div style="width:4px;height:0;border:5px solid #4fcdb7;overflow:hidden"></div></div></td><td class="legendLabel">Product 2</td></tr><tr><td class="legendColorBox"><div style="border:1px solid none;padding:1px"><div style="width:4px;height:0;border:5px solid #8dd168;overflow:hidden"></div></div></td><td class="legendLabel">Product 3</td></tr></tbody></table></div></div>
-              </div>
-            </section>
+    <!--第三行-->
+    <div class="row " >
+      <div class="col-md-12 " >
+        <section class="panel panel-default" style="overflow-x: scroll" >
+          <header class="panel-heading font-bold">Vertical bar</header>
+          <div class="panel-body">
+            <div id="flot-bar" style="height: 240px; padding: 0px; position: relative;">
+              <canvas class="flot-base" width="593" height="240" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 593px; height: 240px;"></canvas>
+              <div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);">
+                <div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
+                  <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 222px; left: 46px; text-align: center;">10</div>
+                  <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 222px; left: 130px; text-align: center;">15</div>
+                  <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 222px; left: 214px; text-align: center;">20</div>
+                  <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 222px; left: 299px; text-align: center;">25</div>
+                  <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 222px; left: 383px; text-align: center;">30</div>
+                  <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 222px; left: 467px; text-align: center;">35</div>
+                  <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 222px; left: 551px; text-align: center;">40</div>
+                </div>
+                <div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
+                  <div class="flot-tick-label tickLabel" style="position: absolute; top: 208px; left: 14px; text-align: right;">0</div>
+                  <div class="flot-tick-label tickLabel" style="position: absolute; top: 166px; left: 7px; text-align: right;">25</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 125px; left: 7px; text-align: right;">50</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 83px; left: 7px; text-align: right;">75</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 42px; left: 0px; text-align: right;">100</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 0px; left: 0px; text-align: right;">125</div></div></div><canvas class="flot-overlay" width="593" height="240" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 593px; height: 240px;"></canvas><div class="legend"><div style="position: absolute; width: 64px; height: 54px; right: 13px; opacity: 0.85; background-color: rgb(255, 255, 255);"> </div><table style="position:absolute;right:13px;;font-size:smaller;color:#545454"><tbody><tr><td class="legendColorBox"><div style="border:1px solid none;padding:1px"><div style="width:4px;height:0;border:5px solid #6783b7;overflow:hidden"></div></div></td><td class="legendLabel">Product 1</td></tr><tr><td class="legendColorBox"><div style="border:1px solid none;padding:1px"><div style="width:4px;height:0;border:5px solid #4fcdb7;overflow:hidden"></div></div></td><td class="legendLabel">Product 2</td></tr><tr><td class="legendColorBox"><div style="border:1px solid none;padding:1px"><div style="width:4px;height:0;border:5px solid #8dd168;overflow:hidden"></div></div></td><td class="legendLabel">Product 3</td></tr></tbody></table></div></div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+
+
+    <!--第四行-->
+    <div class="row">
+      <div class="col-md-5 col-sm-5 col-xs-12 pre-scrollable">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Currently Happening Twitter</h2>
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Settings 1</a>
+                  </li>
+                  <li><a href="#">Settings 2</a>
+                  </li>
+                </ul>
+              </li>
+              <li><a class="close-link"><i class="fa fa-close"></i></a>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <div class="dashboard-widget-content">
+
+              <ul class="list-unstyled timeline widget">
+                <li>
+                  <div class="block">
+                    <div class="block_content">
+                      <h2 class="title">
+                        <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
+                      </h2>
+                      <div class="byline">
+                        <span>13 hours ago</span> by <a>Jane Smith</a>
+                      </div>
+                      <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a style="color:red" href="javascript:void(0);" th="ajax">Read&nbsp;More</a>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <div class="block_content">
+                      <h2 class="title">
+                        <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
+                      </h2>
+                      <div class="byline">
+                        <span>13 hours ago</span> by <a>Jane Smith</a>
+                      </div>
+                      <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a style="color:red" href="javascript:void(0);" th="ajax">Read&nbsp;More</a>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <div class="block_content">
+                      <h2 class="title">
+                        <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
+                      </h2>
+                      <div class="byline">
+                        <span>13 hours ago</span> by <a>Jane Smith</a>
+                      </div>
+                      <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a style="color:red" href="javascript:void(0);" th="ajax">Read&nbsp;More</a>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <div class="block_content">
+                      <h2 class="title">
+                        <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
+                      </h2>
+                      <div class="byline">
+                        <span>13 hours ago</span> by <a>Jane Smith</a>
+                      </div>
+                      <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a style="color:red" href="javascript:void(0);" th="ajax">Read&nbsp;More</a>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <p><a style="color:red;padding-left: 400px" href="javascript:void(0);" th="ajax2">Get&nbsp;More</a></p>
+            </div>
           </div>
         </div>
+      </div>
 
-
-
-        <!--第四行-->
+      <div class="col-md-7 col-sm-7 col-xs-12 pre-scrollable">
+        <!--一列中分了两行-->
         <div class="row">
-          <div class="col-md-5 col-sm-5 col-xs-12 pre-scrollable">
+
+          <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
               <div class="x_title">
-                <h2>Currently Happening Twitter</h2>
+                <h2>Relative Twitter From Database</h2>
                 <ul class="nav navbar-right panel_toolbox">
                   <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                   </li>
@@ -372,6 +464,7 @@
               </div>
               <div class="x_content">
                 <div class="dashboard-widget-content">
+
                   <ul class="list-unstyled timeline widget">
                     <li>
                       <div class="block">
@@ -380,7 +473,10 @@
                             <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
                           </h2>
                           <div class="byline">
-                            <span>13 hours ago</span> by <a>Jane Smith</a>
+                            <span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br>
+                            <span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span></br>
+                            <span>URL：XXX</span><br />
+
                           </div>
                           <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a style="color:red" href="javascript:void(0);" th="ajax">Read&nbsp;More</a>
                           </p>
@@ -394,7 +490,9 @@
                             <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
                           </h2>
                           <div class="byline">
-                            <span>13 hours ago</span> by <a>Jane Smith</a>
+                            <span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br>
+                            <span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span></br>
+                            <span>URL：XXX</span><br />
                           </div>
                           <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a style="color:red" href="javascript:void(0);" th="ajax">Read&nbsp;More</a>
                           </p>
@@ -408,7 +506,9 @@
                             <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
                           </h2>
                           <div class="byline">
-                            <span>13 hours ago</span> by <a>Jane Smith</a>
+                            <span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br>
+                            <span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span></br>
+                            <span>URL：XXX</span><br />
                           </div>
                           <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a style="color:red" href="javascript:void(0);" th="ajax">Read&nbsp;More</a>
                           </p>
@@ -422,258 +522,151 @@
                             <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
                           </h2>
                           <div class="byline">
-                            <span>13 hours ago</span> by <a>Jane Smith</a>
-                          </div>
+                            <span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br>
+                            <span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span></br>
+                            <span>URL：XXX</span><br />                              </div>
                           <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a style="color:red" href="javascript:void(0);" th="ajax">Read&nbsp;More</a>
                           </p>
                         </div>
                       </div>
                     </li>
                   </ul>
-                  <p><a style="color:red;padding-left: 400px" href="javascript:void(0);" th="ajax2">Get&nbsp;More</a></p>
+                  <p><a style="color:red;padding-left: 700px" href="javascript:void(0);" th="ajax3">Get&nbsp;More</a></p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-md-7 col-sm-7 col-xs-12 pre-scrollable">
-            <!--一列中分了两行-->
-            <div class="row">
-
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Relative Twitter From Database</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+        </div>
+        <div id="Msgdetail" style="display: none" class="row">
+          <!-- Start to do list -->
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2 align="center">推特详情 </h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Settings 1</a>
                       </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      <li><a href="#">Settings 2</a>
                       </li>
                     </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <div class="dashboard-widget-content">
+                  </li>
+                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
 
-                      <ul class="list-unstyled timeline widget">
-                        <li>
-                          <div class="block">
-                            <div class="block_content">
-                              <h2 class="title">
-                                <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-                              </h2>
-                              <div class="byline">
-                                <span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br>
-                                <span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span></br>
-                                <span>URL：XXX</span><br />
-                             
-                              </div>
-                              <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a style="color:red" href="javascript:void(0);" th="ajax">Read&nbsp;More</a>
-                              </p>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <div class="block">
-                            <div class="block_content">
-                              <h2 class="title">
-                                <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-                              </h2>
-                              <div class="byline">
-                               <span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br>
-                                <span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span></br>
-                                <span>URL：XXX</span><br />
-                              </div>
-                              <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a style="color:red" href="javascript:void(0);" th="ajax">Read&nbsp;More</a>
-                              </p>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <div class="block">
-                            <div class="block_content">
-                              <h2 class="title">
-                                <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-                              </h2>
-                              <div class="byline">
-                               <span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br>
-                                <span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span></br>
-                                <span>URL：XXX</span><br />
-                              </div>
-                              <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a style="color:red" href="javascript:void(0);" th="ajax">Read&nbsp;More</a>
-                              </p>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <div class="block">
-                            <div class="block_content">
-                              <h2 class="title">
-                                <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-                              </h2>
-                              <div class="byline">
-                                <span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br>
-                                <span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span></br>
-                                <span>URL：XXX</span><br />                              </div>
-                              <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a style="color:red" href="javascript:void(0);" th="ajax">Read&nbsp;More</a>
-                              </p>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                      <p><a style="color:red;padding-left: 700px" href="javascript:void(0);" th="ajax3">Get&nbsp;More</a></p>
-                    </div>
-                  </div>
+                <div class="">
+                  <table width="100%">
+                    <tr>
+                      <td style="width: 60%;font-size: 14px;">标&nbsp;&nbsp;题：sasasasasas</td>
+                      <td style="float:right;font-size: 14px;">用户名：eeeeeeee</td>
+                    </tr>
+                    <tr style="padding-top: 30px;">
+                      <td style="font-size: 14px;padding-top: 30px" colspan="2">这下面是一个详情展示区，用table布局即可满足样式，每行写上你的数据项</td>
+                    </tr>
+                  </table>
                 </div>
               </div>
-
-            </div>
-            <div id="Msgdetail" style="display: none" class="row">
-              <!-- Start to do list -->
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2 align="center">推特详情 </h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-
-                    <div class="">
-                      <table width="100%">
-                        <tr>
-                          <td style="width: 60%;font-size: 14px;">标&nbsp;&nbsp;题：sasasasasas</td>
-                          <td style="float:right;font-size: 14px;">用户名：eeeeeeee</td>
-                        </tr>
-                        <tr style="padding-top: 30px;">
-                          <td style="font-size: 14px;padding-top: 30px" colspan="2">这下面是一个详情展示区，用table布局即可满足样式，每行写上你的数据项</td>
-                        </tr>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- End to do list -->
             </div>
           </div>
+          <!-- End to do list -->
         </div>
       </div>
     </div>
+  </div>
+</div>
 
-    <blockquote>
-      This is just a test:
-      <span id="test-value">Loading...</span>
-    </blockquote>
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="js/fastclick.js"></script>
+<!-- NProgress -->
+<script src="js/nprogress.js"></script>
+<!-- Chart.js -->
+<script src="js/Chart.min.js"></script>
+<!-- gauge.js -->
+<script src="js/gauge.min.js"></script>
+<!-- bootstrap-progressbar -->
+<script src="js/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="js/icheck.min.js"></script>
+<!-- jQuery Sparklines -->
+<script src="js/jquery.sparkline.min.js"></script>
+<!-- Skycons -->
+<script src="js/skycons.js"></script>
+<!-- Flot -->
+<script src="js/jquery.flot.js"></script>
+<script src="js/jquery.flot.pie.js"></script>
+<script src="js/jquery.flot.time.js"></script>
+<script src="js/jquery.flot.stack.js"></script>
+<script src="js/jquery.flot.resize.js"></script>
+<!-- Flot plugins -->
+<script src="js/jquery.flot.orderBars.js"></script>
+<script src="js/date.js"></script>
+<script src="js/jquery.flot.spline.js"></script>
+<script src="js/curvedLines.js"></script>
+<!-- jVectorMap -->
+<script src="js/jquery-jvectormap-2.0.3.min.js"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="js/moment.min.js"></script>
+<script src="js/daterangepicker.js"></script>
 
-    <!-- jQuery -->
-    <script src="js/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="js/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="js/nprogress.js"></script>
-    <!-- Chart.js -->
-    <script src="js/Chart.min.js"></script>
-    <!-- gauge.js -->
-    <script src="js/gauge.min.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="js/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="js/icheck.min.js"></script>
-    <!-- jQuery Sparklines -->
-    <script src="js/jquery.sparkline.min.js"></script>
-    <!-- Skycons -->
-    <script src="js/skycons.js"></script>
-    <!-- Flot -->
-    <script src="js/jquery.flot.js"></script>
-    <script src="js/jquery.flot.pie.js"></script>
-    <script src="js/jquery.flot.time.js"></script>
-    <script src="js/jquery.flot.stack.js"></script>
-    <script src="js/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="js/jquery.flot.orderBars.js"></script>
-    <script src="js/date.js"></script>
-    <script src="js/jquery.flot.spline.js"></script>
-    <script src="js/curvedLines.js"></script>
-    <!-- jVectorMap -->
-    <script src="js/jquery-jvectormap-2.0.3.min.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="js/moment.min.js"></script>
-    <script src="js/daterangepicker.js"></script>
+<!-- Custom Theme Scripts -->
+<script src="js/custom.min.js"></script>
 
-    <!-- Custom Theme Scripts -->
-    <script src="js/custom.min.js"></script>
-
-    <!--ADD-->
-    <script src="js/demo.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            // this function is executed when the page is loaded
-            console.log("Hello world, page and jQuery is loaded");
-
-            var SERVER_URL = 'http://localhost:8080/api.php?'; // keep the server URL in one place
-
-            // creates the url for the 'statistics'-api call
-            var statistics_url = SERVER_URL + $.param({call: 'statistics'});
-            // Do a HTTP GET request to the statistics_url
-            var getPromise = $.get(statistics_url);
-            getPromise.success(function (data) {
-                // this is a function that is executed when the call is done successfully.
-                console.log("success: " + data);
-                $('#test-value').html(data['rumor_counts']['articles']);
-            });
-            getPromise.error(function (jqXHR, textStatus, errorThrown) {
-                // this is a function that is executed when the call has failed.
-                console.log("error: " + errorThrown);
-            });
+<!--ADD-->
+<script src="js/demo.js"></script>
+<script>
+    $(document).ready(function () {
+        // this function is executed when the page is loaded
+        console.log("Hello world, page and jQuery is loaded");
+        var SERVER_URL = 'http://localhost:8080/api.php?'; // keep the server URL in one place
+        // creates the url for the 'statistics'-api call
+        var statistics_url = SERVER_URL + $.param({call: 'statistics'});
+        // Do a HTTP GET request to the statistics_url
+        var getPromise = $.get(statistics_url);
+        getPromise.success(function (data) {
+            // this is a function that is executed when the call is done successfully.
+            console.log("success: " + data);
+            $('#test-value').html(data['rumor_counts']['articles']);
         });
-    </script>
+        getPromise.error(function (jqXHR, textStatus, errorThrown) {
+            // this is a function that is executed when the call has failed.
+            console.log("error: " + errorThrown);
+        });
+    });
+</script>
 
-    <!-- Flot -->
-    <script>
-      $(document).ready(function() {
+<!-- Flot -->
+<script>
+    $(document).ready(function() {
         run();
         var interval;
         function run(){
           /*interval = setInterval(chat,"30000");*/
         }
         function chat(){
-          //get ajax data
-          alert("dmeo 30s list reload:need asynchronous data");
+            //get ajax data
+            alert("dmeo 30s list reload:need asynchronous data");
         }
         $("#closeChat").click(function(){
-          clearTimeout(interval);
+            clearTimeout(interval);
         });
 
         var chartColours = ['#96CA59', '#3F97EB', '#72c380', '#6f7a8a', '#f7cb38', '#5a8022', '#2c7282'];
         //generate random number for charts
         randNum = function() {
-          return (Math.floor(Math.random() * (1 + 40 - 20))) + 20;
+            return (Math.floor(Math.random() * (1 + 40 - 20))) + 20;
         };
 
         var d1 = [];
@@ -681,8 +674,8 @@
 
         //here we generate data for chart
         for (var i = 0; i < 30; i++) {
-          d1.push([new Date(Date.today().add(i).days()).getTime(), randNum() + i + i + 10]);
-          //    d2.push([new Date(Date.today().add(i).days()).getTime(), randNum()]);
+            d1.push([new Date(Date.today().add(i).days()).getTime(), randNum() + i + i + 10]);
+            //    d2.push([new Date(Date.today().add(i).days()).getTime(), randNum()]);
         }
 
         var chartMinDate = d1[0][0]; //first day
@@ -693,62 +686,62 @@
 
         //graph options
         var options = {
-          grid: {
-            show: true,
-            aboveData: true,
-            color: "#3f3f3f",
-            labelMargin: 10,
-            axisMargin: 0,
-            borderWidth: 0,
-            borderColor: null,
-            minBorderMargin: 5,
-            clickable: true,
-            hoverable: true,
-            autoHighlight: true,
-            mouseActiveRadius: 100
-          },
-          series: {
-            lines: {
-              show: true,
-              fill: true,
-              lineWidth: 2,
-              steps: false
+            grid: {
+                show: true,
+                aboveData: true,
+                color: "#3f3f3f",
+                labelMargin: 10,
+                axisMargin: 0,
+                borderWidth: 0,
+                borderColor: null,
+                minBorderMargin: 5,
+                clickable: true,
+                hoverable: true,
+                autoHighlight: true,
+                mouseActiveRadius: 100
             },
-            points: {
-              show: true,
-              radius: 4.5,
-              symbol: "circle",
-              lineWidth: 3.0
-            }
-          },
-          legend: {
-            position: "ne",
-            margin: [0, -25],
-            noColumns: 0,
-            labelBoxBorderColor: null,
-            labelFormatter: function(label, series) {
-              // just add some space to labes
-              return label + '&nbsp;&nbsp;';
+            series: {
+                lines: {
+                    show: true,
+                    fill: true,
+                    lineWidth: 2,
+                    steps: false
+                },
+                points: {
+                    show: true,
+                    radius: 4.5,
+                    symbol: "circle",
+                    lineWidth: 3.0
+                }
             },
-            width: 40,
-            height: 1
-          },
-          colors: chartColours,
-          shadowSize: 0,
-          tooltip: true, //activate tooltip
-          tooltipOpts: {
-            content: "%s: %y.0",
-            xDateFormat: "%d/%m",
-            shifts: {
-              x: -30,
-              y: -50
+            legend: {
+                position: "ne",
+                margin: [0, -25],
+                noColumns: 0,
+                labelBoxBorderColor: null,
+                labelFormatter: function(label, series) {
+                    // just add some space to labes
+                    return label + '&nbsp;&nbsp;';
+                },
+                width: 40,
+                height: 1
             },
-            defaultTheme: false
-          },
-          yaxis: {
-            min: 0
-          },
-          xaxis: {
+            colors: chartColours,
+            shadowSize: 0,
+            tooltip: true, //activate tooltip
+            tooltipOpts: {
+                content: "%s: %y.0",
+                xDateFormat: "%d/%m",
+                shifts: {
+                    x: -30,
+                    y: -50
+                },
+                defaultTheme: false
+            },
+            yaxis: {
+                min: 0
+            },
+            xaxis: {
                 mode: "time",
                 minTickSize: tickSize,
                 timeformat: tformat,
@@ -757,422 +750,445 @@
             }
         };
         var plot = $.plot($("#placeholder33x"), [{
-          label: "Count",
-          data: d1,
-          lines: {
-            fillColor: "rgba(150, 202, 89, 0.12)"
-          }, //#96CA59 rgba(150, 202, 89, 0.42)
-          points: {
-            fillColor: "#fff"
-          }
+            label: "Count",
+            data: d1,
+            lines: {
+                fillColor: "rgba(150, 202, 89, 0.12)"
+            }, //#96CA59 rgba(150, 202, 89, 0.42)
+            points: {
+                fillColor: "#fff"
+            }
         }], options);
 
         $("a[th='ajax']").click(function(){
-          $(this).parent().html("<p>展示Twitter的完整内容</p>");
+            $(this).parent().html("<p>展示Twitter的完整内容</p>");
         })
 
         $("a[th='ajax2']").click(function(){
-          $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>13 hours ago</span> by <a>Jane Smith</a> </div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
-          $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>13 hours ago</span> by <a>Jane Smith</a> </div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
-          $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>13 hours ago</span> by <a>Jane Smith</a> </div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
-          $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>13 hours ago</span> by <a>Jane Smith</a> </div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
-          $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>13 hours ago</span> by <a>Jane Smith</a> </div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
-          $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>13 hours ago</span> by <a>Jane Smith</a> </div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
-          $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>13 hours ago</span> by <a>Jane Smith</a> </div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
-          $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>13 hours ago</span> by <a>Jane Smith</a> </div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
-          $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>13 hours ago</span> by <a>Jane Smith</a> </div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
-          $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>13 hours ago</span> by <a>Jane Smith</a> </div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
+            $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>13 hours ago</span> by <a>Jane Smith</a> </div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
+            $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>13 hours ago</span> by <a>Jane Smith</a> </div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
+            $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>13 hours ago</span> by <a>Jane Smith</a> </div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
+            $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>13 hours ago</span> by <a>Jane Smith</a> </div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
+            $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>13 hours ago</span> by <a>Jane Smith</a> </div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
+            $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>13 hours ago</span> by <a>Jane Smith</a> </div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
+            $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>13 hours ago</span> by <a>Jane Smith</a> </div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
+            $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>13 hours ago</span> by <a>Jane Smith</a> </div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
+            $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>13 hours ago</span> by <a>Jane Smith</a> </div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
+            $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>13 hours ago</span> by <a>Jane Smith</a> </div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
         })
 
 
         $("a[th='ajax3']").click(function(){
-          $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>作者：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>URL：XXX</span><br /><span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br><span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span><span>URL：XXX</span><br /</div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
-          $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>作者：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>URL：XXX</span><br /><span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br><span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span><span>URL：XXX</span><br /</div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
-          $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>作者：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>URL：XXX</span><br /><span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br><span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span><span>URL：XXX</span><br /</div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
-          $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>作者：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>URL：XXX</span><br /><span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br><span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span><span>URL：XXX</span><br /</div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
-          $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>作者：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>URL：XXX</span><br /><span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br><span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span><span>URL：XXX</span><br /</div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
-          $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>作者：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>URL：XXX</span><br /><span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br><span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span><span>URL：XXX</span><br /</div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
-          $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>作者：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>URL：XXX</span><br /><span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br><span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span><span>URL：XXX</span><br /</div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
-          $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>作者：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>URL：XXX</span><br /><span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br><span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span><span>URL：XXX</span><br /</div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
-          $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>作者：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>URL：XXX</span><br /><span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br><span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span><span>URL：XXX</span><br /</div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
-          $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>作者：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>URL：XXX</span><br /><span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br><span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span><span>URL：XXX</span><br /</div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
+            $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>作者：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>URL：XXX</span><br /><span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br><span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span><span>URL：XXX</span><br /</div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
+            $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>作者：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>URL：XXX</span><br /><span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br><span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span><span>URL：XXX</span><br /</div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
+            $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>作者：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>URL：XXX</span><br /><span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br><span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span><span>URL：XXX</span><br /</div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
+            $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>作者：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>URL：XXX</span><br /><span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br><span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span><span>URL：XXX</span><br /</div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
+            $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>作者：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>URL：XXX</span><br /><span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br><span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span><span>URL：XXX</span><br /</div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
+            $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>作者：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>URL：XXX</span><br /><span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br><span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span><span>URL：XXX</span><br /</div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
+            $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>作者：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>URL：XXX</span><br /><span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br><span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span><span>URL：XXX</span><br /</div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
+            $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>作者：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>URL：XXX</span><br /><span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br><span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span><span>URL：XXX</span><br /</div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
+            $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>作者：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>URL：XXX</span><br /><span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br><span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span><span>URL：XXX</span><br /</div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
+            $(this).parent().prev().append("<li><div class='block'><div class='block_content'><h2 class='title'><a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a></h2> <div class='byline'> <span>作者：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>URL：XXX</span><br /><span>Author：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>Author ID：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Twitter ID：XXX</span></br><span>correct possibility：XXX</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span>false possibility：XXX</span><span>URL：XXX</span><br /</div> <p class='excerpt'>点击GET MORE后新展示的20条Twitter的完整内容<a style='color:red' href='javascript:void(0);' th='ajax'>Read&nbsp;More</a> </p> </div> </div> </li>");
         })
 
 
         //$("a[th='ajax']").live("click",function(){
-          //alert("ssssssssssss");
-          //$(this).parent().html("<p>这是完整数据，但是没有数据源。这是完整数据，但是没有数据源。这是完整数据，但是没有数据源。这是完整数据，但是没有数据源。这是完整数据，但是没有数据源。这是完整数据，但是没有数据源。这是完整数据，但是没有数据源。这是完整数据，但是没有数据源。这是完整数据，但是没有数据源。这是完整数据，但是没有数据源。这是完整数据，但是没有数据源。</p>");
+        //alert("ssssssssssss");
+        //$(this).parent().html("<p>这是完整数据，但是没有数据源。这是完整数据，但是没有数据源。这是完整数据，但是没有数据源。这是完整数据，但是没有数据源。这是完整数据，但是没有数据源。这是完整数据，但是没有数据源。这是完整数据，但是没有数据源。这是完整数据，但是没有数据源。这是完整数据，但是没有数据源。这是完整数据，但是没有数据源。这是完整数据，但是没有数据源。</p>");
         //});
 
 
 
         var data1 = [
-          [gd(2012, 1, 1), 17],
-          [gd(2012, 1, 2), 74],
-          [gd(2012, 1, 3), 6],
-          [gd(2012, 1, 4), 39],
-          [gd(2012, 1, 5), 20],
-          [gd(2012, 1, 6), 85],
-          [gd(2012, 1, 7), 7]
+            [gd(2012, 1, 1), 17],
+            [gd(2012, 1, 2), 74],
+            [gd(2012, 1, 3), 6],
+            [gd(2012, 1, 4), 39],
+            [gd(2012, 1, 5), 20],
+            [gd(2012, 1, 6), 85],
+            [gd(2012, 1, 7), 7]
         ];
 
         var data2 = [
-          [gd(2012, 1, 1), 82],
-          [gd(2012, 1, 2), 23],
-          [gd(2012, 1, 3), 66],
-          [gd(2012, 1, 4), 9],
-          [gd(2012, 1, 5), 119],
-          [gd(2012, 1, 6), 6],
-          [gd(2012, 1, 7), 9]
+            [gd(2012, 1, 1), 82],
+            [gd(2012, 1, 2), 23],
+            [gd(2012, 1, 3), 66],
+            [gd(2012, 1, 4), 9],
+            [gd(2012, 1, 5), 119],
+            [gd(2012, 1, 6), 6],
+            [gd(2012, 1, 7), 9]
         ];
         $("#canvas_dahs").length && $.plot($("#canvas_dahs"), [
-          data1, data2
+            data1, data2
         ], {
-          series: {
-            lines: {
-              show: false,
-              fill: true
+            series: {
+                lines: {
+                    show: false,
+                    fill: true
+                },
+                splines: {
+                    show: true,
+                    tension: 0.4,
+                    lineWidth: 1,
+                    fill: 0.4
+                },
+                points: {
+                    radius: 0,
+                    show: true
+                },
+                shadowSize: 2
             },
-            splines: {
-              show: true,
-              tension: 0.4,
-              lineWidth: 1,
-              fill: 0.4
+            grid: {
+                verticalLines: true,
+                hoverable: true,
+                clickable: true,
+                tickColor: "#d5d5d5",
+                borderWidth: 1,
+                color: '#fff'
             },
-            points: {
-              radius: 0,
-              show: true
+            colors: ["rgba(38, 185, 154, 0.38)", "rgba(3, 88, 106, 0.38)"],
+            xaxis: {
+                tickColor: "rgba(51, 51, 51, 0.06)",
+                mode: "time",
+                tickSize: [1, "day"],
+                //tickLength: 10,
+                axisLabel: "Date",
+                axisLabelUseCanvas: true,
+                axisLabelFontSizePixels: 12,
+                axisLabelFontFamily: 'Verdana, Arial',
+                axisLabelPadding: 10
             },
-            shadowSize: 2
-          },
-          grid: {
-            verticalLines: true,
-            hoverable: true,
-            clickable: true,
-            tickColor: "#d5d5d5",
-            borderWidth: 1,
-            color: '#fff'
-          },
-          colors: ["rgba(38, 185, 154, 0.38)", "rgba(3, 88, 106, 0.38)"],
-          xaxis: {
-            tickColor: "rgba(51, 51, 51, 0.06)",
-            mode: "time",
-            tickSize: [1, "day"],
-            //tickLength: 10,
-            axisLabel: "Date",
-            axisLabelUseCanvas: true,
-            axisLabelFontSizePixels: 12,
-            axisLabelFontFamily: 'Verdana, Arial',
-            axisLabelPadding: 10
-          },
-          yaxis: {
-            ticks: 8,
-            tickColor: "rgba(51, 51, 51, 0.06)",
-          },
-          tooltip: true,
-          tooltipOpts: {
-            content: "thhhhhhhhhhhhhhhhhhh",
-            defaultTheme: false,
-            shifts: {
-              x: 0,
-              y: 20
+            yaxis: {
+                ticks: 8,
+                tickColor: "rgba(51, 51, 51, 0.06)",
+            },
+            tooltip: true,
+            tooltipOpts: {
+                content: "thhhhhhhhhhhhhhhhhhh",
+                defaultTheme: false,
+                shifts: {
+                    x: 0,
+                    y: 20
+                }
             }
-          }
         });
 
         function gd(year, month, day) {
-          return new Date(year, month - 1, day).getTime();
+            return new Date(year, month - 1, day).getTime();
         }
-      });
-    </script>
-    <!-- /Flot -->
+    });
+</script>
+<!-- /Flot -->
 
-    <!-- jQuery Sparklines -->
-    <script>
-      $(document).ready(function() {
+<!-- jQuery Sparklines -->
+<script>
+    $(document).ready(function() {
         $(".sparkline_one").sparkline([2, 4, 3, 4, 5, 4, 5, 4, 3, 4, 5, 6, 4, 5, 6, 3, 5, 4, 5, 4, 5, 4, 3, 4, 5, 6, 7, 5, 4, 3, 5, 6], {
-          type: 'bar',
-          height: '260',
-          barWidth: 13,
-          colorMap: {
-            '7': '#a1a1a1'
-          },
-          barSpacing: 2,
-          barColor: '#26B99A'
+            type: 'bar',
+            height: '260',
+            barWidth: 13,
+            colorMap: {
+                '7': '#a1a1a1'
+            },
+            barSpacing: 2,
+            barColor: '#26B99A'
         });
 
         $(".sparkline11").sparkline([2, 4, 3, 4, 5, 4, 5, 4, 3, 4, 6, 2, 4, 3, 4, 5, 4, 5, 4, 3], {
-          type: 'bar',
-          height: '40',
-          barWidth: 8,
-          colorMap: {
-            '7': '#a1a1a1'
-          },
-          barSpacing: 2,
-          barColor: '#26B99A'
+            type: 'bar',
+            height: '40',
+            barWidth: 8,
+            colorMap: {
+                '7': '#a1a1a1'
+            },
+            barSpacing: 2,
+            barColor: '#26B99A'
         });
 
         $(".sparkline22").sparkline([2, 4, 3, 4, 7, 5, 4, 3, 5, 6, 2, 4, 3, 4, 5, 4, 5, 4, 3, 4, 6], {
-          type: 'line',
-          height: '40',
-          width: '200',
-          lineColor: '#26B99A',
-          fillColor: '#ffffff',
-          lineWidth: 3,
-          spotColor: '#34495E',
-          minSpotColor: '#34495E'
+            type: 'line',
+            height: '40',
+            width: '200',
+            lineColor: '#26B99A',
+            fillColor: '#ffffff',
+            lineWidth: 3,
+            spotColor: '#34495E',
+            minSpotColor: '#34495E'
         });
-      });
-    </script>
+    });
+</script>
 
 
-    <!-- jVectorMap -->
-    <script src="js/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="js/jquery-jvectormap-us-aea-en.js"></script>
-    <script src="js/gdp-data.js"></script>
-    <script>
-      $(document).ready(function(){
+<!-- jVectorMap -->
+<script src="js/jquery-jvectormap-world-mill-en.js"></script>
+<script src="js/jquery-jvectormap-us-aea-en.js"></script>
+<script src="js/gdp-data.js"></script>
+<script>
+    $(document).ready(function(){
         $('#world-map-gdp').vectorMap({
-          map: 'world_mill_en',
-          backgroundColor: 'transparent',
-          zoomOnScroll: false,
-          series: {
-            regions: [{
-              values: gdpData,
-              scale: ['#E6F2F0', '#149B7E'],
-              normalizeFunction: 'polynomial'
-            }]
-          },
-          onRegionTipShow: function(e, el, code) {
-            el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
-          }
+            map: 'world_mill_en',
+            backgroundColor: 'transparent',
+            zoomOnScroll: false,
+            series: {
+                regions: [{
+                    values: gdpData,
+                    scale: ['#E6F2F0', '#149B7E'],
+                    normalizeFunction: 'polynomial'
+                }]
+            },
+            onRegionTipShow: function(e, el, code) {
+                el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
+            }
         });
-      });
-    </script>
-    <!-- /jVectorMap -->
+    });
+</script>
+<!-- /jVectorMap -->
 
-    <!-- Skycons -->
-    <script>
-      $(document).ready(function() {
+<!-- Skycons -->
+<script>
+    $(document).ready(function() {
         var icons = new Skycons({
-            "color": "#73879C"
-          }),
-          list = [
-            "clear-day", "clear-night", "partly-cloudy-day",
-            "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
-            "fog"
-          ],
-          i;
+                "color": "#73879C"
+            }),
+            list = [
+                "clear-day", "clear-night", "partly-cloudy-day",
+                "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+                "fog"
+            ],
+            i;
 
         for (i = list.length; i--;)
-          icons.set(list[i], list[i]);
+            icons.set(list[i], list[i]);
 
         icons.play();
-      });
-    </script>
-    <!-- /Skycons -->
+    });
+</script>
+<!-- /Skycons -->
 
-    <!-- Doughnut Chart -->
-    <script>
-      $(document).ready(function(){
+<!-- Doughnut Chart -->
+<script>
+    $(document).ready(function(){
         var options = {
-          legend: false,
-          responsive: false
+            legend: false,
+            responsive: false
         };
 
         var cb = function(start, end, label) {
-          console.log(start.toISOString(), end.toISOString(), label);
-          $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            console.log(start.toISOString(), end.toISOString(), label);
+            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
         };
 
 
         new Chart(document.getElementById("canvas1"), {
-          type: 'doughnut',
-          tooltipFillColor: "rgba(51, 51, 51, 0.55)",
-          data: {
-            labels: [
-              "Rumor",
-              "Not Rumor",
-              "Impossible Rumor"
-            ],
-            datasets: [{
-              data: [30, 40, 30],
-              backgroundColor: [
-                "#BDC3C7",
-                "#9B59B6",
-                "#E74C3C"
-              ],
-              hoverBackgroundColor: [
-                "#CFD4D8",
-                "#B370CF",
-                "#E95E4F"
-              ]
-            }]
-          },
-          options: options
+            type: 'doughnut',
+            tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+            data: {
+                labels: [
+                    "Rumor",
+                    "Not Rumor",
+                    "Impossible Rumor"
+                ],
+                datasets: [{
+                    data: [30, 40, 30],
+                    backgroundColor: [
+                        "#BDC3C7",
+                        "#9B59B6",
+                        "#E74C3C"
+                    ],
+                    hoverBackgroundColor: [
+                        "#CFD4D8",
+                        "#B370CF",
+                        "#E95E4F"
+                    ]
+                }]
+            },
+            options: options
         });
 
         new Chart(document.getElementById("canvas2"), {
-          type: 'doughnut',
-          tooltipFillColor: "rgba(51, 51, 51, 0.55)",
-          data: {
-            labels: [
-                "Rumor",
-                "Not Rumor",
-                "Impossible Rumor"
-            ],
-            datasets: [{
-              data: [30, 40, 30],
-              backgroundColor: [
-                "#BDC3C7",
-                "#9B59B6",
-                "#E74C3C"
-              ],
-              hoverBackgroundColor: [
-                "#CFD4D8",
-                "#B370CF",
-                "#E95E4F"
-              ]
-            }]
-          },
-          options: options
+            type: 'doughnut',
+            tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+            data: {
+                labels: [
+                    "Rumor",
+                    "Not Rumor",
+                    "Impossible Rumor"
+                ],
+                datasets: [{
+                    data: [30, 40, 30],
+                    backgroundColor: [
+                        "#BDC3C7",
+                        "#9B59B6",
+                        "#E74C3C"
+                    ],
+                    hoverBackgroundColor: [
+                        "#CFD4D8",
+                        "#B370CF",
+                        "#E95E4F"
+                    ]
+                }]
+            },
+            options: options
         });
 
 
         $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
         $('#reportrange').daterangepicker(optionSet1, cb);
         $('#reportrange').on('show.daterangepicker', function() {
-          console.log("show event fired");
+            console.log("show event fired");
         });
         $('#reportrange').on('hide.daterangepicker', function() {
-          console.log("hide event fired");
+            console.log("hide event fired");
         });
         $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
-          console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+            console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
         });
         $('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
-          console.log("cancel event fired");
+            console.log("cancel event fired");
         });
         $('#options1').click(function() {
-          $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
+            $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
         });
         $('#options2').click(function() {
-          $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
+            $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
         });
         $('#destroy').click(function() {
-          $('#reportrange').data('daterangepicker').remove();
+            $('#reportrange').data('daterangepicker').remove();
         });
-      });
-    </script>
-    <!-- /Doughnut Chart -->
-    <!-- bootstrap-daterangepicker -->
-    <script>
-      $(document).ready(function() {
+    });
+</script>
+<!-- /Doughnut Chart -->
+<!-- bootstrap-daterangepicker -->
+<script>
+    $(document).ready(function() {
         var cb = function(start, end, label) {
-          console.log(start.toISOString(), end.toISOString(), label);
-          $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            console.log(start.toISOString(), end.toISOString(), label);
+            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
         };
 
         var optionSet1 = {
-          startDate: moment().subtract(29, 'days'),
-          endDate: moment(),
-          minDate: '01/01/2012',
-          maxDate: '12/31/2015',
-          dateLimit: {
-            days: 60
-          },
-          showDropdowns: true,
-          showWeekNumbers: true,
-          timePicker: false,
-          timePickerIncrement: 1,
-          timePicker12Hour: true,
-          ranges: {
-            'Today': [moment(), moment()],
-            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-            'This Month': [moment().startOf('month'), moment().endOf('month')],
-            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-          },
-          opens: 'left',
-          buttonClasses: ['btn btn-default'],
-          applyClass: 'btn-small btn-primary',
-          cancelClass: 'btn-small',
-          format: 'MM/DD/YYYY',
-          separator: ' to ',
-          locale: {
-            applyLabel: 'Submit',
-            cancelLabel: 'Clear',
-            fromLabel: 'From',
-            toLabel: 'To',
-            customRangeLabel: 'Custom',
-            daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-            monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-            firstDay: 1
-          }
+            startDate: moment().subtract(29, 'days'),
+            endDate: moment(),
+            minDate: '01/01/2012',
+            maxDate: '12/31/2015',
+            dateLimit: {
+                days: 60
+            },
+            showDropdowns: true,
+            showWeekNumbers: true,
+            timePicker: false,
+            timePickerIncrement: 1,
+            timePicker12Hour: true,
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            },
+            opens: 'left',
+            buttonClasses: ['btn btn-default'],
+            applyClass: 'btn-small btn-primary',
+            cancelClass: 'btn-small',
+            format: 'MM/DD/YYYY',
+            separator: ' to ',
+            locale: {
+                applyLabel: 'Submit',
+                cancelLabel: 'Clear',
+                fromLabel: 'From',
+                toLabel: 'To',
+                customRangeLabel: 'Custom',
+                daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                firstDay: 1
+            }
         };
         $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
         $('#reportrange').daterangepicker(optionSet1, cb);
         $('#reportrange').on('show.daterangepicker', function() {
-          console.log("show event fired");
+            console.log("show event fired");
         });
         $('#reportrange').on('hide.daterangepicker', function() {
-          console.log("hide event fired");
+            console.log("hide event fired");
         });
         $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
-          console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+            console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
         });
         $('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
-          console.log("cancel event fired");
+            console.log("cancel event fired");
         });
         $('#options1').click(function() {
-          $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
+            $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
         });
         $('#options2').click(function() {
-          $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
+            $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
         });
         $('#destroy').click(function() {
-          $('#reportrange').data('daterangepicker').remove();
+            $('#reportrange').data('daterangepicker').remove();
         });
-      });
-    </script>
-    <!-- /bootstrap-daterangepicker -->
+    });
+</script>
+<!-- /bootstrap-daterangepicker -->
 
-    <!-- gauge.js -->
-    <script>
-      var opts = {
-          lines: 12,
-          angle: 0,
-          lineWidth: 0.4,
-          pointer: {
-              length: 0.75,
-              strokeWidth: 0.042,
-              color: '#1D212A'
-          },
-          limitMax: 'false',
-          colorStart: '#1ABC9C',
-          colorStop: '#1ABC9C',
-          strokeColor: '#F0F3F3',
-          generateGradient: true
-      };
-      var target = document.getElementById('foo'),
-          gauge = new Gauge(taget).setOptions(opts);
+<!-- gauge.js -->
+<script>
+    var opts = {
+        lines: 12,
+        angle: 0,
+        lineWidth: 0.4,
+        pointer: {
+            length: 0.75,
+            strokeWidth: 0.042,
+            color: '#1D212A'
+        },
+        limitMax: 'false',
+        colorStart: '#1ABC9C',
+        colorStop: '#1ABC9C',
+        strokeColor: '#F0F3F3',
+        generateGradient: true
+    };
+    var target = document.getElementById('foo'),
+        gauge = new Gauge(taget).setOptions(opts);
 
-      gauge.maxValue = 6000;
-      gauge.animationSpeed = 32;
-      gauge.set(3200);
-      gauge.setTextField(document.getElementById("gauge-text"));
-    </script>
-    <!-- /gauge.js -->
-  </body>
-  <script>
+    gauge.maxValue = 6000;
+    gauge.animationSpeed = 32;
+    gauge.set(3200);
+    gauge.setTextField(document.getElementById("gauge-text"));
+</script>
+<!-- /gauge.js -->
+</body>
+<script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
     ga('create', 'UA-23581568-13', 'auto');
     ga('send', 'pageview');
 
-  </script>
+</script>
+<script>
+    $(document).ready(function () {
+        // this function is executed when the page is loaded
+        console.log("Hello world, page and jQuery is loaded");
+
+        var SERVER_URL = 'http://localhost:8080/chartData.php?'; // keep the server URL in one place
+
+        // creates the url for the 'statistics'-api call
+        var statistics_url = SERVER_URL + $.param({call: 'statistics'});
+        // Do a HTTP GET request to the statistics_url
+        var getPromise = $.get(statistics_url);
+        getPromise.success(function (data) {
+            // this is a function that is executed when the call is done successfully.
+            console.log("success: " + data);
+            $('#test-value').html(data['rumor_counts']['articles']);
+        });
+        getPromise.error(function (jqXHR, textStatus, errorThrown) {
+            // this is a function that is executed when the call has failed.
+            console.log("error: " + errorThrown);
+        });
+    });
+</script>
+
 </html>
