@@ -1168,27 +1168,4 @@
     ga('send', 'pageview');
 
 </script>
-<script>
-    $(document).ready(function () {
-        // this function is executed when the page is loaded
-        console.log("Hello world, page and jQuery is loaded");
-
-        var SERVER_URL = 'http://localhost:8080/chartData.php?'; // keep the server URL in one place
-
-        // creates the url for the 'statistics'-api call
-        var statistics_url = SERVER_URL + $.param({call: 'statistics'});
-        // Do a HTTP GET request to the statistics_url
-        var getPromise = $.get(statistics_url);
-        getPromise.success(function (data) {
-            // this is a function that is executed when the call is done successfully.
-            console.log("success: " + data);
-            $('#test-value').html(data['rumor_counts']['articles']);
-        });
-        getPromise.error(function (jqXHR, textStatus, errorThrown) {
-            // this is a function that is executed when the call has failed.
-            console.log("error: " + errorThrown);
-        });
-    });
-</script>
-
 </html>
