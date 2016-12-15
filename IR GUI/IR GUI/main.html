@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Rumor Detector</title>
+    <base target="_blank"/>
+
+    <style type="text/css">
+
+        body{
+            width: auto;
+            margin: 0;
+            padding-bottom: 0;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 0;
+        }
+        #baiduimage{
+            margin-center:0 auto;
+            margin-top: 10%;
+        }
+        #selection
+        {
+            margin-left: 30%;
+            margin-top: 10%;
+        }
+        ul
+        {
+            list-style-type:none;
+            margin-left:20%;
+            padding:0;
+            overflow:hidden;
+        }
+        li
+        {
+            float: left;
+        }
+        li a:link,li a:visited
+        {
+            display: block;
+            width: 60px;
+            font-weight: bold;
+            color: #2625E5;
+            text-align: center;
+            text-decoration: underline;
+            text-transform: uppercase;
+            padding-bottom: 0px;
+            padding-left: 0px;
+            padding-right: 0px;
+            padding-top: 0px;
+        }
+        li a:hover,li a:active
+        {background-color:#F00;
+        }
+        form{
+
+            margin-top:0px;
+            text-align: center;
+        }
+        #text{
+            width: 600px;
+            height: 45px;
+            border-color:#39F;
+            border-style:solid;
+            border-width:1px;
+            font-size:24px;
+        }
+
+        #button{height:55px;width:120px;background-color:#39F;border-style:solid;font-size:24px;color:#FFF;margin-left:-10px;}
+
+    </style>
+</head>
+
+<body>
+
+</div>
+<div class="all">
+    <div style="text-align: center;">
+        <img src="images/Titile.png"  alt="" width="500" height="129" id="baiduimage"/></div>
+    <div style="text-align: center;">
+        <form>
+            <input name="input" type="text" id="text" value="" maxlength="100">
+            <input id="button" name="baidu" type="button" title="Search" value="Search" onclick="window.location.href='Result/Result.html">
+
+        </form>
+    </div>
+    <p></p>
+ 
+</div>
+<script src="js/jquery.min.js"></script>
+<script>
+    $(function(){
+        $("#button").click(function(){
+            location.href="demo.html?kw="+$("#text").val();
+        })
+    })
+</script>
+<p></p>
+<font  face="黑体" color="red"><center>Note:Please input key words in English</center></font>
+</body>
+</html>
