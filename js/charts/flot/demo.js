@@ -1,7 +1,69 @@
 $(function(){
 
-  // 
-  var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    var nrtweets = [];
+    for (var i = 0; i <= 11; i += 1) {
+        nrtweets.push([i, parseInt((Math.floor(Math.random() * (1 + 20 - 10))) + 10)]);
+    }
+
+
+    $("#number-of-tweets").length && $.plot($("#number-of-tweets"), [{
+            data: nrtweets
+        }],
+        {
+            series: {
+                lines: {
+                    show: true,
+                    lineWidth: 1,
+                    fill: true,
+                    fillColor: {
+                        colors: [{
+                            opacity: 0.3
+                        }, {
+                            opacity: 0.3
+                        }]
+                    }
+                },
+                points: {
+                    radius: 3,
+                    show: true
+                },
+                grow: {
+                    active: true,
+                    steps: 50
+                },
+                shadowSize: 2
+            },
+            grid: {
+                hoverable: true,
+                clickable: true,
+                tickColor: "#f0f0f0",
+                borderWidth: 1,
+                color: '#f0f0f0'
+            },
+            colors: ["#1bb399"],
+            xaxis:{
+            },
+            yaxis: {
+                ticks: 5
+            },
+            tooltip: true,
+            tooltipOpts: {
+                content: "Number of tweets at %x.1 is %y",
+                defaultTheme: false,
+                shifts: {
+                    x: 0,
+                    y: 20
+                }
+            }
+        }
+    );
+
+    //old demo stuff
+
+
   var d1 = [];
   for (var i = 0; i <= 11; i += 1) {
     d1.push([i, parseInt((Math.floor(Math.random() * (1 + 20 - 10))) + 10)]);
