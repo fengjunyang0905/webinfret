@@ -7,14 +7,10 @@ $(function(){
 
     var nrtweets = [];
     for (var i = 0; i <= 11; i += 1) {
-        nrtweets.push([monthNames[i] +  " 2016", parseInt((Math.floor(Math.random() * (1 + 20 - 10))) + 10)]);
+        nrtweets.push([monthNames[i] +  " 2016", parseInt((Math.floor(Math.random() * (1 + 1000 - 10))) + 10)]);
     }
 
-
-    $("#number-of-tweets").length && $.plot($("#number-of-tweets"), [{
-            data: nrtweets
-        }],
-        {
+    var options = {
             series: {
                 lines: {
                     show: true,
@@ -62,11 +58,15 @@ $(function(){
                 }
             }
         }
-    );
 
-    $.getJSON(api_root + "numberoftweets.php", function( nrtweets ) {
-        alert("tweets: " + JSON.stringify(nrtweets));
-    });
+    var numberOfTweetsPlot = $("#number-of-tweets").length && $.plot($("#number-of-tweets"), [{ data: nrtweets}], options );
+
+    /*$.getJSON(api_root + "numberoftweets.php", function( data ) {
+        numberOfTweetsPlot.setData(data);
+        numberOfTweetsPlot.setupGrid(); //only necessary if your new data will change the axes or grid
+        numberOfTweetsPlot.draw();
+        alert("tweets: " + JSON.stringify(data));
+    });*/
 
 
 
