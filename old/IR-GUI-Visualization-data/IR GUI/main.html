@@ -80,7 +80,7 @@
     <div style="text-align: center;">
         <form>
             <input name="input" type="text" id="text" value="" maxlength="100">
-            <input id="button" name="baidu" type="button" title="Search" value="Search" onclick="window.location.href='Result/Result.html">
+            <input id="button" name="baidu" type="button" title="Search" value="Search">
 
         </form>
     </div>
@@ -91,7 +91,14 @@
 <script>
     $(function(){
         $("#button").click(function(){
-            location.href="demo.html?kw="+$("#text").val();
+            var text = $("#text").val();
+            var url ="http://www.4thebestdream.com:8082/api.php?call=query&&kw="+text;
+            $.get(url).success(function(){
+                location.href="demo.html?kw="+$("#text").val();
+            });
+            $.get(url).error(function(){
+                location.href="demo.html?kw="+$("#text").val();
+            });
         })
     })
 </script>

@@ -43,8 +43,6 @@ $(function(){
         },
         colors: ["#1bb399"],
         xaxis:{
-            //min: chartMinDate,
-            //max: chartMaxDate
         },
         yaxis: {
           ticks: 5
@@ -60,19 +58,6 @@ $(function(){
         }
       }
   );
-
-
-    //var th = [];
-    //var d2 = [];
-
-    //here we generate data for chart
-   // for (var i = 0; i < 30; i++) {
-        //th.push([new Date(Date.today().add(i).days()).getTime(), randNum() + i + i + 10]);
-        //    d2.push([new Date(Date.today().add(i).days()).getTime(), randNum()]);
-    //}
-
-    //var chartMinDate = th[0][0]; //first day
-    //var chartMaxDate = th[20][0]; //last day
 
   var d0 = [
     [0,0],[1,0],[2,1],[3,2],[4,15],[5,5],[6,12],[7,10],[8,55],[9,13],[10,25],[11,10],[12,12],[13,6],[14,2],[15,0],[16,0]
@@ -264,164 +249,42 @@ $(function(){
   };
 
   // bar
-/*  var d1_1 = [
+  var d1_1 = [
     [10, 120],
     [20, 70],
     [30, 100],
-    [40, 60],
-      [50,100],
-      [60,100],
-      [70,100],
-      [80,100],
-      [90,100],
-      [100,100],
-      [110, 120],
-      [120, 70],
-      [130, 100],
-      [140, 60],
-      [150,100],
-      [160,100],
-      [170,100],
-      [180,100],
-      [190,100],
-      [200,100]
+    [40, 60]
   ];
 
   var d1_2 = [
     [10, 80],
     [20, 60],
     [30, 30],
-    [40, 35],
-      [50,100],
-      [60,100],
-      [70,100],
-      [80,100],
-      [90,100],
-      [100,100],
-      [110, 120],
-      [120, 70],
-      [130, 100],
-      [140, 60],
-      [150,100],
-      [160,100],
-      [170,100],
-      [180,100],
-      [190,100],
-      [200,100]
+    [40, 35]
   ];
 
   var d1_3 = [
     [10, 80],
     [20, 40],
     [30, 30],
-    [40, 20],
-      [50,100],
-      [60,100],
-      [70,100],
-      [80,100],
-      [90,100],
-      [100,100],
-      [110, 120],
-      [120, 70],
-      [130, 100],
-      [140, 60],
-      [150,100],
-      [160,100],
-      [170,100],
-      [180,100],
-      [190,100],
-      [200,100]
-  ];*/
-
-    /*var d1_1 = [
-        ["2016/11/17", "120"],
-        ["2016/11/18", "120"],
-        ["2016/11/19", "70"],
-        ["2016/11/20", "70"],
-        ["2016/11/21", "100"],
-        ["2016/11/22", "60"],
-        ["2016/11/23", "60"],
-        ["2016/11/24", "60"],
-        ["2016/11/25","100"],
-        ["2016/11/26","100"],
-        ["2016/11/2","100"],
-        ["2016/11/27","100"],
-        ["2016/11/29","100"],
-        ["2016/12/01","100"],
-        ["2016/12/","100"],
-        ["20161210","100"]
-    ];
-
-    var d1_2 = [
-        ["20161201", "80"],
-        ["20161202", "60"],
-        ["20161203", "30"],
-        ["20161204", "35"],
-        ["20161205","100"],
-        ["20161206","100"],
-        ["20161207","100"],
-        ["20161208","100"],
-        ["20161209","100"],
-        ["20161210","100"]
-    ];
-
-    var d1_3 = [
-        ["20161201", "80"],
-        ["20161202", "40"],
-        ["20161203", "30"],
-        ["20161204", "20"],
-        ["20161205","100"],
-        ["20161206","100"],
-        ["20161207","100"],
-        ["20161208","100"],
-        ["20161209","100"],
-        ["20161210","100"]
-    ];
-*/
-
-    randNum = function() {
-        return (Math.floor(Math.random() * (1 + 40 - 20))) + 20;
-    };
-
-    var d1_1 = [];
-    var d1_2 = [];
-    var d1_3 = [];
-    //var d2 = [];
-
-    //here we generate data for chart
-    for (var i = 0; i < 30; i++) {
-        d1_1.push([new Date(Date.today().add(i).days()).getTime(), randNum() + i + i + 10]);
-        d1_2.push([new Date(Date.today().add(i).days()).getTime(), randNum() + i + i + 10]);
-        d1_3.push([new Date(Date.today().add(i).days()).getTime(), randNum() + i + i + 10]);
-    }
-    var tickSize = [1, "day"];
-    var tformat = "%d/%m/%y";
+    [40, 20]
+  ];
 
   var data1 = [
     {
-        label: "Rumor的数量",
+        label: "Product 1",
         data: d1_1,
         bars: {
             show: true,
             fill: true,
             lineWidth: 1,
             order: 1,
-            title: 11,
             fillColor: { colors: [{ opacity: 0.5 }, { opacity: 0.9}] }
-        },
-        options: {
-            xaxis: {
-                mode: "time",
-                minTickSize: tickSize,
-                timeformat: tformat,
-                min: d1_1,
-                max: d1_1
-            }
         },
         color: "#6783b7"
     },
     {
-        label: "不是Rumor的数量",
+        label: "Product 2",
         data: d1_2,
         bars: {
             show: true,
@@ -430,19 +293,10 @@ $(function(){
             order: 2,
             fillColor: { colors: [{ opacity: 0.5 }, { opacity: 0.9}] }
         },
-        options: {
-            xaxis: {
-                mode: "time",
-                minTickSize: tickSize,
-                timeformat: tformat,
-                min: d1_1,
-                max: d1_1
-            }
-        },
         color: "#4fcdb7"
     },
     {
-        label: "可能Rumor的数量",
+        label: "Product 3",
         data: d1_3,
         bars: {
             show: true,
@@ -450,15 +304,6 @@ $(function(){
             lineWidth: 1,
             order: 3,
             fillColor: { colors: [{ opacity: 0.5 }, { opacity: 0.9}] }
-        },
-        options: {
-            xaxis: {
-                mode: "time",
-                minTickSize: tickSize,
-                timeformat: tformat,
-                min: d1_1,
-                max: d1_1
-            }
         },
         color: "#8dd168"
     }
