@@ -50,7 +50,7 @@ $(function(){
             },
             tooltip: true,
             tooltipOpts: {
-                content: "Number of tweets at %x.1 is %y",
+                content: "Number of tweets in %x: %y",
                 defaultTheme: false,
                 shifts: {
                     x: 0,
