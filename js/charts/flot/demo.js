@@ -1,11 +1,13 @@
 $(function(){
 
+    var api_root = "http://localhost/web-inf-retrieval-frontend/api/";
+
 
     var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
     var nrtweets = [];
     for (var i = 0; i <= 11; i += 1) {
-        nrtweets.push([i, parseInt((Math.floor(Math.random() * (1 + 20 - 10))) + 10)]);
+        nrtweets.push([monthNames[i] +  " 2016", parseInt((Math.floor(Math.random() * (1 + 20 - 10))) + 10)]);
     }
 
 
@@ -45,6 +47,7 @@ $(function(){
             },
             colors: ["#1bb399"],
             xaxis:{
+                mode: "categories"
             },
             yaxis: {
                 ticks: 5
@@ -60,6 +63,12 @@ $(function(){
             }
         }
     );
+
+    $.getJSON(api_root + "numberoftweets.php", function( nrtweets ) {
+        alert("tweets: " + JSON.stringify(nrtweets));
+    });
+
+
 
     //old demo stuff
 
