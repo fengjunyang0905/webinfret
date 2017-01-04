@@ -26,7 +26,7 @@ $(function(){
     //user is "finished typing," do something
     function searchTweets () {
         if($input.val() != ""){
-            $("#searchResults").html("Loading");
+            $("#searchResults").html('<i class="fa fa-spinner fa-spin"></i> Loading');
             $.getJSON(api_root + "searchTweets.php", function( data ) {
                 $("#searchResults").html(JSON.stringify(data));
             });
