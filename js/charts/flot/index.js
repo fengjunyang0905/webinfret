@@ -86,6 +86,15 @@ $(function(){
         grid: {
             hoverable: true,
             clickable: false
+        },
+        tooltip: true,
+        tooltipOpts: {
+            defaultTheme: false,
+            content: "%s: %p.0%",
+            shifts: {
+                x: 0,
+                y: 20
+            }
         }
     };
 
@@ -95,6 +104,98 @@ $(function(){
             rumorRatio.push({label: point, data: data[point]});
         }
         $("#rumor-ratio").length && $.plot($("#rumor-ratio"), rumorRatio, rumorRatioOptions  );
+    });
+
+    //articles chart
+    //checkout: http://www.jqueryflottutorial.com/how-to-make-jquery-flot-horizontal-bar-chart.html
+
+    var d1_1 = [
+        [10, 120],
+        [20, 70],
+        [30, 100],
+        [40, 60]
+    ];
+
+    var d1_2 = [
+        [10, 80],
+        [20, 60],
+        [30, 30],
+        [40, 35]
+    ];
+
+    var d1_3 = [
+        [10, 80],
+        [20, 40],
+        [30, 30],
+        [40, 20]
+    ];
+
+    var data1 = [
+        {
+            label: "Product 1",
+            data: d1_1,
+            bars: {
+                show: true,
+                fill: true,
+                lineWidth: 1,
+                order: 1,
+                fillColor: { colors: [{ opacity: 0.5 }, { opacity: 0.9}] }
+            },
+            color: "#6783b7"
+        },
+        {
+            label: "Product 2",
+            data: d1_2,
+            bars: {
+                show: true,
+                fill: true,
+                lineWidth: 1,
+                order: 2,
+                fillColor: { colors: [{ opacity: 0.5 }, { opacity: 0.9}] }
+            },
+            color: "#4fcdb7"
+        },
+        {
+            label: "Product 3",
+            data: d1_3,
+            bars: {
+                show: true,
+                fill: true,
+                lineWidth: 1,
+                order: 3,
+                fillColor: { colors: [{ opacity: 0.5 }, { opacity: 0.9}] }
+            },
+            color: "#8dd168"
+        }
+    ];
+
+    $("#articles").length && $.plot($("#articles"), data1, {
+        xaxis: {
+
+        },
+        yaxis: {
+
+        },
+        grid: {
+            hoverable: true,
+            clickable: false,
+            borderWidth: 0
+        },
+        legend: {
+            labelBoxBorderColor: "none",
+            position: "left"
+        },
+        series: {
+            shadowSize: 1
+        },
+        tooltip: true,
+        tooltipOpts: {
+            defaultTheme: false,
+            shifts: {
+                x: 0,
+                y: 20
+            }
+        }
     });
 
 });
