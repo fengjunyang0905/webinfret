@@ -107,95 +107,30 @@ $(function(){
     });
 
     //articles chart
-    //checkout: http://www.jqueryflottutorial.com/how-to-make-jquery-flot-horizontal-bar-chart.html
 
-    var d1_1 = [
-        [10, 120],
-        [20, 70],
-        [30, 100],
-        [40, 60]
-    ];
+    var rawdata = [ ["January", 10], ["February", 8], ["March", 4], ["April", 13], ["May", 17], ["June", 9] ];
 
-    var d1_2 = [
-        [10, 80],
-        [20, 60],
-        [30, 30],
-        [40, 35]
-    ];
-
-    var d1_3 = [
-        [10, 80],
-        [20, 40],
-        [30, 30],
-        [40, 20]
-    ];
-
-    var data1 = [
-        {
-            label: "Product 1",
-            data: d1_1,
-            bars: {
-                show: true,
-                fill: true,
-                lineWidth: 1,
-                order: 1,
-                fillColor: { colors: [{ opacity: 0.5 }, { opacity: 0.9}] }
-            },
-            color: "#6783b7"
-        },
-        {
-            label: "Product 2",
-            data: d1_2,
-            bars: {
-                show: true,
-                fill: true,
-                lineWidth: 1,
-                order: 2,
-                fillColor: { colors: [{ opacity: 0.5 }, { opacity: 0.9}] }
-            },
-            color: "#4fcdb7"
-        },
-        {
-            label: "Product 3",
-            data: d1_3,
-            bars: {
-                show: true,
-                fill: true,
-                lineWidth: 1,
-                order: 3,
-                fillColor: { colors: [{ opacity: 0.5 }, { opacity: 0.9}] }
-            },
-            color: "#8dd168"
-        }
-    ];
-
-    $("#articles").length && $.plot($("#articles"), data1, {
-        xaxis: {
-
-        },
-        yaxis: {
-
-        },
-        grid: {
-            hoverable: true,
-            clickable: false,
-            borderWidth: 0
-        },
-        legend: {
-            labelBoxBorderColor: "none",
-            position: "left"
-        },
+    var ArticlesAmountOptions = {
         series: {
-            shadowSize: 1
-        },
-        tooltip: true,
-        tooltipOpts: {
-            defaultTheme: false,
-            shifts: {
-                x: 0,
-                y: 20
+            bars: {
+                show: true,
+                barWidth: 0.6,
+                align: "center"
             }
+        },
+        xaxis: {
+            mode: "categories",
+            tickLength: 0
         }
+    };
+
+    $.getJSON(api_root + "articlesAmount.php", function( data ) {
+        var amounts = [];
+        for(var point in data){
+            amounts.push({label: point, data: data[point]});
+        }
+        $.plot("#articles_amount", [ rawdata ], ArticlesAmountOptions);
     });
+
 
 });
