@@ -53,7 +53,7 @@ $(function(){
         }
     };
 
-    $.getJSON(api_root + "numberoftweets.php", function( data ) {
+    $.getJSON(api_root + "numberOfTweets.php", function( data ) {
         var nrtweets = [];
         for(var point in data){
             nrtweets.push([point,data[point]]);
@@ -64,39 +64,7 @@ $(function(){
 
     //rumor ratio chart
 
-    var da = [
-            {
-                label: "iPhone5S",
-                data: 40
-            },
-            {
-                label: "iPad Mini",
-                data: 10
-            },
-            {
-                label: "iPad Mini Retina",
-                data: 20
-            },
-            {
-                label: "iPhone4S",
-                data: 12
-            },
-            {
-                label: "iPad Air",
-                data: 18
-            }
-        ],
-        da1 = [],
-        series = Math.floor(Math.random() * 4) + 3;
-
-    for (var i = 0; i < series; i++) {
-        da1[i] = {
-            label: "Series" + (i + 1),
-            data: Math.floor(Math.random() * 100) + 1
-        }
-    }
-
-    $("#rumor-ratio").length && $.plot($("#rumor-ratio"), da, {
+    var rumorRatioOptions = {
         series: {
             pie: {
                 innerRadius: 0.4,
@@ -114,10 +82,19 @@ $(function(){
                 }
             }
         },
-        colors: ["#65b5c2","#4da7c1","#3993bb","#2e7bad","#23649e"],
+        colors: ["#1ccc88","#b4b4b4","#e33244"],
         grid: {
             hoverable: true,
             clickable: false
         }
+    };
+
+    $.getJSON(api_root + "rumorRatio.php", function( data ) {
+        var rumorRatio = [];
+        for(var point in data){
+            rumorRatio.push({label: point, data: data[point]});
+        }
+        $("#rumor-ratio").length && $.plot($("#rumor-ratio"), rumorRatio, rumorRatioOptions  );
     });
+
 });
