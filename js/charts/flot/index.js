@@ -26,21 +26,18 @@ $(function(){
     //user is "finished typing," do something
     function searchTweets () {
         if($input.val() != ""){
-            $("#searchResults").html('<i class="fa fa-spinner fa-spin"></i> Loading');
+            $("#searchResults").html('<li class="list-group-item"><i class="fa fa-spinner fa-spin"></i> Loading</li></ul>');
             $.getJSON(api_root + "searchTweets.php?query=" + encodeURIComponent($input.val()), function( data ) {
                 $("#searchResults").html("");
-                $("#searchResults").append('<ul class="list-group alt">');
                 $("#searchResults").append('<li class="list-group-item">Number of results: ' + data.length + '</li>');
                 for(var tweet in data){
                     $("#searchResults").append('<li class="list-group-item">' + tweet + ': User: ' + data[tweet]["userid"] + ', text: ' + data[tweet]["text"] + '</li>');
                 }
-
-                $("#searchResults").append('</ul>');
                 //$("#searchResults").append("<div>" + JSON.stringify(data) + "</div>");
             });
 
         }else{
-            $("#searchResults").html("Please enter a search query to get results.");
+            $("#searchResults").html('<li class="list-group-item">Please enter a search query to get results.</li>');
         }
 
     }
