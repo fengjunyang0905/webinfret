@@ -106,7 +106,7 @@ $(function(){
         $("#rumor-ratio").length && $.plot($("#rumor-ratio"), rumorRatio, rumorRatioOptions  );
     });
 
-    //articles chart
+    //amount of articles chart
 
     var rawdata = [ ["January", 10], ["February", 8], ["March", 4], ["April", 13], ["May", 17], ["June", 9] ];
 
@@ -155,8 +155,50 @@ $(function(){
         for(var point in data){
             amounts.push([point, data[point]]);
         }
-        $.plot("#articles_amount", [ amounts ], ArticlesAmountOptions);
+        $.plot("#articles-amount", [ amounts ], ArticlesAmountOptions);
     });
 
+    //articles ratio chart
+
+    var articlesRatioOptions = {
+        series: {
+            pie: {
+                innerRadius: 0.4,
+                show: true,
+                stroke: {
+                    width: 0
+                },
+                label: {
+                    show: true,
+                    threshold: 0.05
+                },
+                grow: {
+                    active: true,
+                    steps: 50
+                }
+            }
+        },
+        grid: {
+            hoverable: true,
+            clickable: false
+        },
+        tooltip: true,
+        tooltipOpts: {
+            defaultTheme: false,
+            content: "%s: %p.0%",
+            shifts: {
+                x: 0,
+                y: 20
+            }
+        }
+    };
+
+    $.getJSON(api_root + "articlesRatio.php", function( data ) {
+        var rumorRatio = [];
+        for(var point in data){
+            rumorRatio.push({label: point, data: data[point]});
+        }
+        $("#articles-ratio").length && $.plot($("#articles-ratio"), rumorRatio, articlesRatioOptions  );
+    });
 
 });
