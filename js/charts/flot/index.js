@@ -27,7 +27,7 @@ $(function(){
     function searchTweets () {
         if($input.val() != ""){
             $("#searchResults").html('<i class="fa fa-spinner fa-spin"></i> Loading');
-            $.getJSON(api_root + "searchTweets.php", function( data ) {
+            $.getJSON(api_root + "searchTweets.php?query=" + encodeURIComponent($input.val()), function( data ) {
                 $("#searchResults").html(JSON.stringify(data));
             });
 
