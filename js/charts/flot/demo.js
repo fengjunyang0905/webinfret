@@ -2,14 +2,9 @@ $(function(){
 
     var api_root = "http://localhost/web-inf-retrieval-frontend/api/";
 
-
     var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-    var nrtweets = [];
-    for (var i = 0; i <= 11; i += 1) {
-        nrtweets.push([monthNames[i] +  " 2016", parseInt((Math.floor(Math.random() * (1 + 1000 - 10))) + 10)]);
-    }
-
+    //graph: number of tweets
     var options = {
             series: {
                 lines: {
@@ -59,14 +54,16 @@ $(function(){
             }
         }
 
-    var numberOfTweetsPlot = $("#number-of-tweets").length && $.plot($("#number-of-tweets"), [{ data: nrtweets}], options );
 
-    /*$.getJSON(api_root + "numberoftweets.php", function( data ) {
-        numberOfTweetsPlot.setData(data);
-        numberOfTweetsPlot.setupGrid(); //only necessary if your new data will change the axes or grid
-        numberOfTweetsPlot.draw();
-        alert("tweets: " + JSON.stringify(data));
-    });*/
+    $.getJSON(api_root + "numberoftweets.php", function( data ) {
+        var nrtweets2 = [];
+        for(var point in data){
+            nrtweets2.push([point,data[point]]);
+        }
+
+        var numberOfTweetsPlot = $("#number-of-tweets").length && $.plot($("#number-of-tweets"), [{ data: nrtweets2}], options );
+
+    });
 
 
 
