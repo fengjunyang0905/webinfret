@@ -14,5 +14,6 @@ results:
     - Certaintity
     - Related articles (0/1/2)
  */
-
-die("todo");
+sleep(3);
+$return = array("still","left","to","do");
+echo json_encode($return);

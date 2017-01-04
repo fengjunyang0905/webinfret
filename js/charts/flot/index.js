@@ -25,7 +25,16 @@ $(function(){
 
     //user is "finished typing," do something
     function searchTweets () {
-        alert("do search");
+        if($input.val() != ""){
+            $("#searchResults").html("Loading");
+            $.getJSON(api_root + "searchTweets.php", function( data ) {
+                $("#searchResults").html(JSON.stringify(data));
+            });
+
+        }else{
+            $("#searchResults").html("Please enter a search query to get results.");
+        }
+
     }
 
     //graph: number of tweets
