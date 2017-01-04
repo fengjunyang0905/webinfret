@@ -68,5 +68,57 @@ $(function(){
 
     //rumor ratio chart
 
+    var da = [
+            {
+                label: "iPhone5S",
+                data: 40
+            },
+            {
+                label: "iPad Mini",
+                data: 10
+            },
+            {
+                label: "iPad Mini Retina",
+                data: 20
+            },
+            {
+                label: "iPhone4S",
+                data: 12
+            },
+            {
+                label: "iPad Air",
+                data: 18
+            }
+        ],
+        da1 = [],
+        series = Math.floor(Math.random() * 4) + 3;
 
+    for (var i = 0; i < series; i++) {
+        da1[i] = {
+            label: "Series" + (i + 1),
+            data: Math.floor(Math.random() * 100) + 1
+        }
+    }
+
+    $("#rumor-ratio").length && $.plot($("#rumor-ratio"), da, {
+        series: {
+            pie: {
+                innerRadius: 0.4,
+                show: true,
+                stroke: {
+                    width: 0
+                },
+                label: {
+                    show: true,
+                    threshold: 0.05
+                },
+
+            }
+        },
+        colors: ["#65b5c2","#4da7c1","#3993bb","#2e7bad","#23649e"],
+        grid: {
+            hoverable: true,
+            clickable: false
+        }
+    });
 });
