@@ -115,12 +115,35 @@ $(function(){
             bars: {
                 show: true,
                 barWidth: 0.6,
-                align: "center"
+                align: "center",
+                lineWidth: 1
+            },
+            fill: true,
+            fillColor: {
+                colors: [{
+                    opacity: 0.3
+                }, {
+                    opacity: 0.3
+                }]
             }
         },
         xaxis: {
             mode: "categories",
             tickLength: 0
+        },
+        grid: {
+            hoverable: true,
+            clickable: false
+        },
+        colors: ["#fcc633"],
+        tooltip: true,
+        tooltipOpts: {
+            defaultTheme: false,
+            content: "%x: %y articles",
+            shifts: {
+                x: 0,
+                y: 20
+            }
         }
     };
 
