@@ -5,7 +5,7 @@ $(function(){
     var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
     //graph: number of tweets
-    var options = {
+    var numberOfTweetsOptions = {
             series: {
                 lines: {
                     show: true,
@@ -52,22 +52,22 @@ $(function(){
                     y: 20
                 }
             }
-        }
-
+        };
 
     $.getJSON(api_root + "numberoftweets.php", function( data ) {
-        var nrtweets2 = [];
+        var nrtweets = [];
         for(var point in data){
-            nrtweets2.push([point,data[point]]);
+            nrtweets.push([point,data[point]]);
         }
 
-        var numberOfTweetsPlot = $("#number-of-tweets").length && $.plot($("#number-of-tweets"), [{ data: nrtweets2}], options );
-
+        $("#number-of-tweets").length && $.plot($("#number-of-tweets"), [{ data: nrtweets}], numberOfTweetsOptions );
     });
 
+    //
 
 
-    //old demo stuff
+
+    //old demo stuff ------------------------------------------
 
 
   var d1 = [];
