@@ -26,10 +26,6 @@ $(function(){
                 radius: 3,
                 show: true
             },
-            grow: {
-                active: true,
-                steps: 50
-            },
             shadowSize: 2
         },
         grid: {
@@ -112,7 +108,10 @@ $(function(){
                     show: true,
                     threshold: 0.05
                 },
-
+                grow: {
+                    active: true,
+                    steps: 50
+                }
             }
         },
         colors: ["#65b5c2","#4da7c1","#3993bb","#2e7bad","#23649e"],
