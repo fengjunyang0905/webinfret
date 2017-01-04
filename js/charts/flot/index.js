@@ -133,7 +133,10 @@ $(function(){
         },
         grid: {
             hoverable: true,
-            clickable: false
+            clickable: true,
+            tickColor: "#f0f0f0",
+            borderWidth: 1,
+            color: '#f0f0f0'
         },
         colors: ["#fcc633"],
         tooltip: true,
@@ -150,9 +153,9 @@ $(function(){
     $.getJSON(api_root + "articlesAmount.php", function( data ) {
         var amounts = [];
         for(var point in data){
-            amounts.push({label: point, data: data[point]});
+            amounts.push([point, data[point]]);
         }
-        $.plot("#articles_amount", [ rawdata ], ArticlesAmountOptions);
+        $.plot("#articles_amount", [ amounts ], ArticlesAmountOptions);
     });
 
 
