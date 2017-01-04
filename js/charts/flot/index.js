@@ -5,7 +5,28 @@ $(function(){
 
     var api_root = "http://localhost/web-inf-retrieval-frontend/api/";
 
-    var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    //Tweet search
+
+    //countdown for auto search
+    var typingTimer;                //timer identifier
+    var doneTypingInterval = 500;  //time in ms
+    var $input = $('#tweetsearcher');
+
+    //on keyup, start the countdown
+    $input.on('keyup', function () {
+        clearTimeout(typingTimer);
+        typingTimer = setTimeout(searchTweets, doneTypingInterval);
+    });
+
+    //on keydown, clear the countdown
+    $input.on('keydown', function () {
+        clearTimeout(typingTimer);
+    });
+
+    //user is "finished typing," do something
+    function searchTweets () {
+        alert("do search");
+    }
 
     //graph: number of tweets
     var numberOfTweetsOptions = {
@@ -182,6 +203,7 @@ $(function(){
             hoverable: true,
             clickable: false
         },
+        colors: ["#1ccacc","#1ccc88","#e33244","#fcc633","#cc1cca"],
         tooltip: true,
         tooltipOpts: {
             defaultTheme: false,

@@ -6,7 +6,7 @@
  * Time: 15:16
  */
 
-//note: actually correct data
+//note: actually correct data, choose to do this hardcoded because querying takes too long (multiple minutes)
 $return = array(
     "Jan 2016" => 6805,
     "Feb 2016" => 6192,
