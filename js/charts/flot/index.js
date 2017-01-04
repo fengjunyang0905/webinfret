@@ -28,7 +28,15 @@ $(function(){
         if($input.val() != ""){
             $("#searchResults").html('<i class="fa fa-spinner fa-spin"></i> Loading');
             $.getJSON(api_root + "searchTweets.php?query=" + encodeURIComponent($input.val()), function( data ) {
-                $("#searchResults").html(JSON.stringify(data));
+                $("#searchResults").html("");
+                $("#searchResults").append('<ul class="list-group alt">');
+                $("#searchResults").append('<li class="list-group-item">Number of results: ' + data.length + '</li>');
+                for(var tweet in data){
+                    $("#searchResults").append('<li class="list-group-item">' + tweet + ': User: ' + data[tweet]["userid"] + ', text: ' + data[tweet]["text"] + '</li>');
+                }
+
+                $("#searchResults").append('</ul>');
+                //$("#searchResults").append("<div>" + JSON.stringify(data) + "</div>");
             });
 
         }else{
