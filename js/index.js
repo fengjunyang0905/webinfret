@@ -39,8 +39,9 @@ $(function(){
                     for(var result in data){
                         $("#searchResults").append('<li class="list-group-item">' +
                             '<b>' + data[result]["title"] + '</b><br>' +
-                            data[result]["description"] + '<br>' +
-                            '<a href="' + data[result]["link"] + '" target="_blank">' + data[result]["link"] + '</a></li>');
+                            '<div style="font-size: 9px;">Published on: <span style="color: #1c4acc">' + data[result]["published_date"] + '</span></div>' +
+                            '<div style="width: 900px;">' + data[result]["description"] + '</div>' +
+                            '<a href="' + data[result]["link"] + '" target="_blank" style="color: #43a016; font-size: 11px;">' + data[result]["link"] + '</a></li>');
                     }
 
                 }else{
