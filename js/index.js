@@ -3,7 +3,7 @@
  */
 $(function(){
 
-    var api_root = "http://localhost/web-inf-retrieval-frontend/api/";
+    var api_root = "api/";
 
     //Tweet search
 
