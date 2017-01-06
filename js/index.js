@@ -31,11 +31,22 @@ $(function(){
     function searchTweets () {
         if($input.val() != ""){
             $("#searchResults").html('<li class="list-group-item"><i class="fa fa-spinner fa-spin"></i> Loading</li></ul>');
-            $.getJSON(api_root + "searchTweets.php?query=" + encodeURIComponent($input.val()), function( data ) {
+
+            $.getJSON(api_root + "search.php?search=" +  $('input[name=SearchWhat]:checked').val() + "&query=" + encodeURIComponent($input.val()), function( data ) {
                 $("#searchResults").html("");
                 $("#searchResults").append('<li class="list-group-item">Number of results: ' + data.length + ' (Query: ' + $('input[name=SearchWhat]:checked').val() + ')</li>');
-                for(var tweet in data){
-                    $("#searchResults").append('<li class="list-group-item">' + tweet + ': User: ' + data[tweet]["userid"] + ', text: ' + data[tweet]["text"] + '</li>');
+                if($('input[name=SearchWhat]:checked').val() == "articles"){
+                    for(var result in data){
+                        $("#searchResults").append('<li class="list-group-item">' +
+                            '<b>' + data[result]["title"] + '</b><br>' +
+                            data[result]["description"] + '<br>' +
+                            '<a href="' + data[result]["link"] + '" target="_blank">' + data[result]["link"] + '</a></li>');
+                    }
+
+                }else{
+                    for(var tweet in data){
+                        $("#searchResults").append('<li class="list-group-item">' + tweet + ': User: ' + data[tweet]["userid"] + ', text: ' + data[tweet]["text"] + '</li>');
+                    }
                 }
                 //$("#searchResults").append("<div>" + JSON.stringify(data) + "</div>");
             });
