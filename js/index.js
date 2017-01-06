@@ -38,8 +38,8 @@ $(function(){
                 if($('input[name=SearchWhat]:checked').val() == "articles"){
                     for(var result in data){
                         $("#searchResults").append('<li class="list-group-item">' +
-                            '<b>' + data[result]["title"] + '</b><br>' +
-                            '<div style="font-size: 9px;">Published on: <span style="color: #1c4acc">' + data[result]["published_date"] + '</span></div>' +
+                            '<a href="' + data[result]["link"] + '" target="_blank" style="font-weight: bold;">' + data[result]["title"] + '</a><br>' +
+                            '<div style="font-size: 11px;">Published on: <span style="color: #1c4acc">' + data[result]["published_date"] + '</span></div>' +
                             '<div style="width: 900px;">' + data[result]["description"] + '</div>' +
                             '<a href="' + data[result]["link"] + '" target="_blank" style="color: #43a016; font-size: 11px;">' + data[result]["link"] + '</a></li>');
                     }
