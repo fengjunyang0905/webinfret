@@ -1,0 +1,911 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Web Information Retrival and Data Mining</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="css/green.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- jVectorMap -->
+    <link href="css/jquery-jvectormap-2.0.3.css" rel="stylesheet"/>
+
+    <!-- Custom Theme Style -->
+    <link href="css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="row">
+          <!--FirstRow FirstColumn-->
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="x_panel tile fixed_height_320 overflow_hidden">
+              <div class="x_title">
+                <h2>Pie Chart</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Settings 1</a>
+                      </li>
+                      <li><a href="#">Settings 2</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <table class="" style="width:100%">
+                  <tr>
+                    <th style="width:37%;">
+                      <p>Percentage of Rumors</p>
+                    </th>
+                    <th>
+
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <canvas id="canvas1" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
+                    </td>
+                    <td>
+                      <table class="tile_info">
+                        <tbody><tr>
+                          <td>
+                            <p><i class="fa fa-square red"></i>Rumor </p>
+                          </td>
+                          <td id="pic_true_rumor_percentage"></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <p><i class="fa fa-square green"></i>Not Rumor</p>
+                          </td>
+                          <td id="pic_false_rumor_percentage"></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <p><i class="fa fa-square purple"></i>Impossible Rumor </p>
+                          </td>
+                          <td id="pic_other_rumor_percentage"></td>
+                        </tr>
+                        </tbody></table>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!--FirstRow SecondColumn-->
+          <div class="col-md-8 col-sm-8 col-xs-12">
+            <div class="x_panel tile fixed_height_320">
+              <div class="x_title">
+                <h2>Relative Information</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Settings 1</a>
+                      </li>
+                      <li><a href="#">Settings 2</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <div class="widget_summary">
+                  <div class="w_left w_25">
+
+                  </div>
+                  <div class="w_center w_55">
+
+                  </div>
+                  <div class="w_right w_20">
+
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="widget_summary">
+                  <div class="w_left w_25">
+                    <span>Amount of Rumor</span>
+                  </div>
+                  <div class="w_center w_55">
+                    <div class="progress">
+                      <div id="secondary_1" class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                        <span class="sr-only">60% Complete</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="w_right w_20">
+                    <span id="secondary_text_1"></span>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="widget_summary">
+                  <div class="w_left w_25">
+                    <span>Amount of Not Rumor</span>
+                  </div>
+                  <div class="w_center w_55">
+                    <div class="progress">
+                      <div id="secondary_2" class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                        <span class="sr-only">60% Complete</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="w_right w_20">
+                    <span id="secondary_text_2"></span>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="widget_summary">
+                  <div class="w_left w_25">
+                    <span>Amount of Impossible Rumor</span>
+                  </div>
+                  <div class="w_center w_55">
+                    <div class="progress">
+                      <div id="secondary_3" class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                        <span class="sr-only">60% Complete</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="w_right w_20">
+                    <span id="secondary_text_3"></span>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="widget_summary">
+                  <div class="w_left w_25">
+                    <span>Amount of Relative Twitter</span>
+                  </div>
+                  <div class="w_center w_55">
+                    <div class="progress">
+                      <div id="secondary_4" class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                        <span class="sr-only">20% Complete</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="w_right w_20">
+                    <span id="secondary_text_4"></span>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="widget_summary">
+                  <div class="w_left w_25">
+                    <span>Amount of Relative Article</span>
+                  </div>
+                  <div class="w_center w_55">
+                    <div class="progress">
+                      <div id="secondary_5" class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                        <span class="sr-only">80% Complete</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div  class="w_right w_20">
+                    <span id="secondary_text_5"></span>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!--Second Row-->
+        <div class="row ">
+          <div class="col-md-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>The Most Popular Hashtag for Everyday </h2>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                  <div class="demo-container" style="height:280px;overflow-y: auto">
+                    <div id="placeholder33x" class="demo-placeholder" style="padding: 0px; position: relative;">
+                    </div>
+                  </div>
+
+                </div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+
+        <!--Third Row-->
+        <div class="row " >
+          <div class="col-md-12 " >
+            <section class="panel panel-default" style="overflow-x: scroll" >
+              <header class="panel-heading font-bold">Differences of Everyday on the Numner of Rumor/Not Rumor/Impossible Rumor </header>
+              <div class="panel-body">
+                <div id="flot-bar" style="height: 240px; padding: 0px; position: relative;">
+                    <canvas class="flot-base" width="593" height="240" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 593px; height: 240px;"></canvas>
+                    <div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);">
+                        <div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
+                            <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 222px; left: 46px; text-align: center;">10</div>
+                            <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 222px; left: 130px; text-align: center;">15</div>
+                            <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 222px; left: 214px; text-align: center;">20</div>
+                            <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 222px; left: 299px; text-align: center;">25</div>
+                            <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 222px; left: 383px; text-align: center;">30</div>
+                            <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 222px; left: 467px; text-align: center;">35</div>
+                            <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 65px; top: 222px; left: 551px; text-align: center;">40</div>
+                        </div>
+                        <div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
+                            <div class="flot-tick-label tickLabel" style="position: absolute; top: 208px; left: 14px; text-align: right;">0</div>
+                            <div class="flot-tick-label tickLabel" style="position: absolute; top: 166px; left: 7px; text-align: right;">25</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 125px; left: 7px; text-align: right;">50</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 83px; left: 7px; text-align: right;">75</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 42px; left: 0px; text-align: right;">100</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 0px; left: 0px; text-align: right;">125</div></div></div><canvas class="flot-overlay" width="593" height="240" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 593px; height: 240px;"></canvas><div class="legend"><div style="position: absolute; width: 64px; height: 54px; right: 13px; opacity: 0.85; background-color: rgb(255, 255, 255);"> </div><table style="position:absolute;right:13px;;font-size:smaller;color:#545454"><tbody><tr><td class="legendColorBox"><div style="border:1px solid none;padding:1px"><div style="width:4px;height:0;border:5px solid #6783b7;overflow:hidden"></div></div></td><td class="legendLabel">Product 1</td></tr><tr><td class="legendColorBox"><div style="border:1px solid none;padding:1px"><div style="width:4px;height:0;border:5px solid #4fcdb7;overflow:hidden"></div></div></td><td class="legendLabel">Product 2</td></tr><tr><td class="legendColorBox"><div style="border:1px solid none;padding:1px"><div style="width:4px;height:0;border:5px solid #8dd168;overflow:hidden"></div></div></td><td class="legendLabel">Product 3</td></tr></tbody></table></div></div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+
+
+        <!--Fourth Row-->
+        <div class="row">
+          <div class="col-md-5 col-sm-5 col-xs-12 pre-scrollable">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Currently Happening Twitter</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Settings 1</a>
+                      </li>
+                      <li><a href="#">Settings 2</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <div class="dashboard-widget-content">
+
+                  <ul id="five_left" class="list-unstyled timeline widget">
+                  </ul>
+                  <p><a style="color:red;padding-left: 400px" href="javascript:void(0);" th="ajax2">Get&nbsp;More</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-7 col-sm-7 col-xs-12 pre-scrollable">
+            <!--Two rows in a column-->
+            <div class="row">
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Relative Twitter From Database</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <div class="dashboard-widget-content">
+
+                      <ul id="five_right" class="list-unstyled timeline widget">
+                      </ul>
+                      <p><a style="color:red;padding-left: 700px" href="javascript:void(0);" th="ajax3">Get&nbsp;More</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div id="Msgdetail" style="display: none" class="row">
+              <!-- Start to do list -->
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2 align="center">推特详情 </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <div class="">
+                      <table width="100%">
+                        <tr>
+                          <td style="width: 60%;font-size: 14px;">标&nbsp;&nbsp;题：sasasasasas</td>
+                          <td style="float:right;font-size: 14px;">用户名：eeeeeeee</td>
+                        </tr>
+                        <tr style="padding-top: 30px;">
+                          <td style="font-size: 14px;padding-top: 30px" colspan="2">这下面是一个详情展示区，用table布局即可满足样式，每行写上你的数据项</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End to do list -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <blockquote>
+      This is just a test:
+      <span id="test-value">Loading...</span>
+    </blockquote>
+
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="js/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="js/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="js/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="js/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="js/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="js/icheck.min.js"></script>
+    <!-- jQuery Sparklines -->
+    <script src="js/jquery.sparkline.min.js"></script>
+    <!-- Skycons -->
+    <script src="js/skycons.js"></script>
+    <!-- Flot -->
+    <script src="js/jquery.flot.js"></script>
+    <script src="js/jquery.flot.pie.js"></script>
+    <script src="js/jquery.flot.time.js"></script>
+    <script src="js/jquery.flot.stack.js"></script>
+    <script src="js/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="js/jquery.flot.orderBars.js"></script>
+    <script src="js/date.js"></script>
+    <script src="js/jquery.flot.spline.js"></script>
+    <script src="js/curvedLines.js"></script>
+    <!-- jVectorMap -->
+    <script src="js/jquery-jvectormap-2.0.3.min.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="js/moment.min.js"></script>
+    <script src="js/daterangepicker.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="js/custom.min.js"></script>
+
+    <!--ADD-->
+    <script src="js/demo.js"></script>
+
+    <!-- Flot -->
+    <script>
+        $(document).ready(function () {
+            // this function is executed when the page is loaded
+            console.log("Hello world, page and jQuery is loaded");
+
+            var SERVER_URL = 'http://localhost:8080/api.php?'; // keep the server URL in one place
+            //var SERVER_URL ='http://www.4thebestdream.com:8082/api.php?';
+
+
+            // creates the url for the 'statistics'-api call
+            var statistics_url = SERVER_URL + $.param({call: 'statistics'});
+            var latest_url = SERVER_URL + $.param({call: 'latest'});
+            var tweets_url = SERVER_URL + $.param({call: 'tweets'});
+            // Do a HTTP GET request to the statistics_url
+
+            /*变量的声明*/
+            var pic_data = [],bar_rumor_counts,line_data,bar_rumor_histogram;
+            var chartColours = ['#96CA59', '#3F97EB', '#72c380', '#6f7a8a', '#f7cb38', '#5a8022', '#2c7282'];
+
+            var getPromise = $.get(statistics_url);
+            var getLatest = $.get(latest_url);
+            var getTweets = $.get(tweets_url);
+            getPromise.success(function (data) {
+                // this is a function that is executed when the call is done successfully.
+                //$('#test-value').html(data['rumor_counts']['articles']);
+
+                pic_data.push(data['rumor_percentage']['true_rumor_percentage']);
+                pic_data.push(data['rumor_percentage']['false_rumor_percentage']);
+                pic_data.push(data['rumor_percentage']['other_rumor_percentage']);
+                $('#pic_true_rumor_percentage').html(data['rumor_percentage']['true_rumor_percentage']+'%');
+                $('#pic_false_rumor_percentage').html(data['rumor_percentage']['false_rumor_percentage']+'%');
+                $('#pic_other_rumor_percentage').html(data['rumor_percentage']['other_rumor_percentage']+'%');
+
+                document.getElementById("secondary_1").style.width= data['rumor_counts']['tweet_true_rumor']+'%';
+                $('#secondary_text_1').html(data['rumor_counts']['tweet_true_rumor']+'  Pieces');
+                document.getElementById("secondary_2").style.width= data['rumor_counts']['tweet_false_rumor']+'%';
+                $('#secondary_text_2').html(data['rumor_counts']['tweet_false_rumor']+'  Pieces');
+                document.getElementById("secondary_3").style.width= data['rumor_counts']['tweet_other_rumor']+'%';
+                $('#secondary_text_3').html(data['rumor_counts']['tweet_other_rumor']+'  Pieces');
+                document.getElementById("secondary_4").style.width= data['rumor_counts']['tweets']+'%';
+                $('#secondary_text_4').html(data['rumor_counts']['tweets']+'  Pieces');
+                document.getElementById("secondary_5").style.width= data['rumor_counts']['articles']+'%';
+                $('#secondary_text_5').html(data['rumor_counts']['articles']+'  Pieces');
+
+
+                line_data = data['tweet_histogram'];
+                bar_rumor_histogram = data['rumor_histogram'];
+
+                /*pie 第一个图填充数据*/
+                var options = {
+                    legend: false,
+                    responsive: false
+                };
+
+                new Chart(document.getElementById("canvas1"), {
+                    type: 'doughnut',
+                    tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+                    data: {
+                        labels: [
+                            "Rumor",
+                            "Not Rumor",
+                            "Impossible Rumor"
+                        ],
+                        datasets: [{
+                            data: pic_data,
+                            backgroundColor: [
+                                "#BDC3C7",
+                                "#9B59B6",
+                                "#E74C3C"
+                            ],
+                            hoverBackgroundColor: [
+                                "#CFD4D8",
+                                "#B370CF",
+                                "#E95E4F"
+                            ]
+                        }]
+                    },
+                    options: options
+                });
+                /*第三个图 js动态生成table*/
+                var div = document.getElementById("placeholder33x");
+                var table = document.createElement("table");//创建table
+                var row = table.insertRow();//创建一行
+                var cell = row.insertCell();//创建一个单元
+                cell.width = "20%";//更改cell的各种属性
+                cell.innerHTML="Date";
+                cell = row.insertCell();//创建一个单元
+                cell.width = "50%";//更改cell的各种属性
+                cell.innerHTML="Hashtag";
+                cell = row.insertCell();//创建一个单元
+                cell.width = "30%";//更改cell的各种属性
+                cell.innerHTML="Frequency";
+                for (var i = 0; i < line_data.length; i++) {
+                    var row = table.insertRow();//创建一行
+                    var cell = row.insertCell();//创建一个单元
+                    cell.width = "20%";//更改cell的各种属性
+                    var date = new Date(line_data[i]['date']);
+                    date = date.getFullYear()+'-'+date.getMonth()+'-'+date.getDate();
+                    cell.innerHTML=date;
+                    cell = row.insertCell();//创建一个单元
+                    cell.width = "50%";//更改cell的各种属性
+                    cell.innerHTML=line_data[i]['hashtag'];
+                    cell = row.insertCell();//创建一个单元
+                    cell.width = "30%";//更改cell的各种属性
+                    cell.innerHTML=line_data[i]['freq'];
+                }
+                div.appendChild(table);
+                $('table').addClass('table-striped');
+                $('table').css('width','100%');
+                $('table').css('font-size','16px');
+
+
+                /*第四个图*/
+                var d1_1 = [];
+                var d1_2 = [];
+                var d1_3 = [];
+                //here we generate data for chart
+                for (var i = 0; i < bar_rumor_histogram.length; i++) {
+                    d1_1.push([new Date(bar_rumor_histogram[i]['date']).getTime(), bar_rumor_histogram[i]['freq_true']]);
+                    d1_2.push([new Date(bar_rumor_histogram[i]['date']).getTime(), bar_rumor_histogram[i]['freq_false']]);
+                    d1_3.push([new Date(bar_rumor_histogram[i]['date']).getTime(), bar_rumor_histogram[i]['freq_other']]);
+                }
+                var tickSize = [1, "day"];
+                var tformat = "%y-%m-%d";
+
+                var data_bar_rumor_histogram = [
+                    {
+                        label: "Amount of Rumor",
+                        data: d1_1,
+                        bars: {
+                            show: true,
+                            fill: true,
+                            lineWidth: 7,
+                            order: 1,
+                            fillColor: { colors: [{ opacity: 0.5 }, { opacity: 0.9}] }
+                        },
+                        color: "#6783b7"
+                    },
+                    {
+                        label: "Amount of Not Rumor",
+                        data: d1_2,
+                        bars: {
+                            show: true,
+                            fill: true,
+                            lineWidth: 7,
+                            order: 2,
+                            fillColor: { colors: [{ opacity: 0.5 }, { opacity: 0.9}] }
+                        },
+                        color: "#4fcdb7"
+                    },
+                    {
+                        label: "Amount of Impossible Rumor",
+                        data: d1_3,
+                        bars: {
+                            show: true,
+                            fill: true,
+                            lineWidth: 7,
+                            order: 3,
+                            fillColor: { colors: [{ opacity: 0.5 }, { opacity: 0.9}] }
+                        },
+                        color: "#8dd168"
+                    }
+                ];
+
+                $("#flot-bar").length && $.plot($("#flot-bar"), data_bar_rumor_histogram, {
+                    xaxis: {
+                        mode: "time",
+                        minTickSize: tickSize,
+                        timeformat: tformat
+                    },
+                    yaxis: {
+
+                    },
+                    grid: {
+                        hoverable: true,
+                        clickable: false,
+                        borderWidth: 1
+                    },
+                    legend: {
+                        labelBoxBorderColor: "none",
+                        position: "left"
+                    },
+                    series: {
+                        shadowSize: 0
+                    },
+                    tooltip: true,
+                    tooltipOpts: {
+
+                    },
+                    xDateFormat: "%d/%m"
+                });
+
+            });
+            getPromise.error(function (jqXHR, textStatus, errorThrown) {
+                // this is a function that is executed when the call has failed.
+            });
+
+            getLatest.success(function(data){
+                for(var i = 0;i<data.length;i++){
+                    var text = data[i]['text'].substring(0,170);
+                    $('#five_left').append("<li><div class='block'><div class='block_content'><h2 class='title'><a>"+data[i]['title']+"</a></h2> <div class='byline'> <span>"+data[i]['date']+"</span> by <a>"+data[i]['author_name']+"</a> </div> <p class='excerpt'>"+text+'......'+"<a style='color:red' href='"+data[i]['author_link']+"'>Read&nbsp;More</a> </p> </div> </div> </li>");
+                }
+
+            });
+            getLatest.error(function(jqXHR, textStatus, errorThrown){
+                alert('ERROR');
+            });
+            getTweets.success(function(data){
+                for(var i = 0;i<data.length;i++){
+                    var text = data[i]['text'].substring(0,170);
+                    $('#five_right').append("<li><div class='block'><div class='block_content'><h2 class='title'><a>"+data[i]['title']+"</a></h2> <div class='byline'><span>Author ID："+data[i]['attribute_3']+"</span></br><span>correct possibility："+data[i]['attribute_1']+"</span><br><span>false possibility："+data[i]['attribute_2']+"</span><br><span>URL："+data[i]['author_link']+"</span><br /</div><br> <p class='excerpt'>"+text+'......'+"<a style='color:red' href='"+data[i]['author_link']+"'>Read&nbsp;More</a> </p> </div> </div> </li>");
+                }
+            });
+            getTweets.error(function(jqXHR, textStatus, errorThrown){
+                alert('ERROR');
+            });
+
+            $("a[th='ajax2']").click(function(){
+                getLatest.success(function(data){
+                    for(var i = 0;i<data.length;i++){
+                        var text = data[i]['text'].substring(0,170);
+                        $('#five_left').append("<li><div class='block'><div class='block_content'><h2 class='title'><a>"+data[i]['title']+"</a></h2> <div class='byline'> <span>"+data[i]['date']+"</span> by <a>"+data[i]['author_name']+"</a> </div> <p class='excerpt'>"+text+'......'+"<a style='color:red' href='"+data[i]['author_link']+"'>Read&nbsp;More</a> </p> </div> </div> </li>");
+                    }
+
+                });
+                getLatest.error(function(jqXHR, textStatus, errorThrown){
+                    alert('ERROR');
+                });
+            });
+
+            $("a[th='ajax3']").click(function(){
+                getTweets.success(function(data){
+                    for(var i = 0;i<data.length;i++){
+                        var text = data[i]['text'].substring(0,170);
+                        $('#five_right').append("<li><div class='block'><div class='block_content'><h2 class='title'><a>"+data[i]['title']+"</a></h2> <div class='byline'><span>Author ID："+data[i]['attribute_3']+"</span></br><span>correct possibility："+data[i]['attribute_1']+"</span><br><span>false possibility："+data[i]['attribute_2']+"</span><br><span>URL："+data[i]['author_link']+"</span><br /</div><br> <p class='excerpt'>"+text+'......'+"<a style='color:red' href='"+data[i]['author_link']+"'>Read&nbsp;More</a> </p> </div> </div> </li>");
+                    }
+                });
+                getTweets.error(function(jqXHR, textStatus, errorThrown){
+                    alert('ERROR');
+                });
+            });
+
+        });
+    </script>
+    <!-- /Flot -->
+
+    <!-- jQuery Sparklines -->
+    <script>
+      $(document).ready(function() {
+        $(".sparkline_one").sparkline([2, 4, 3, 4, 5, 4, 5, 4, 3, 4, 5, 6, 4, 5, 6, 3, 5, 4, 5, 4, 5, 4, 3, 4, 5, 6, 7, 5, 4, 3, 5, 6], {
+          type: 'bar',
+          height: '260',
+          barWidth: 13,
+          colorMap: {
+            '7': '#a1a1a1'
+          },
+          barSpacing: 2,
+          barColor: '#26B99A'
+        });
+
+        $(".sparkline11").sparkline([2, 4, 3, 4, 5, 4, 5, 4, 3, 4, 6, 2, 4, 3, 4, 5, 4, 5, 4, 3], {
+          type: 'bar',
+          height: '40',
+          barWidth: 8,
+          colorMap: {
+            '7': '#a1a1a1'
+          },
+          barSpacing: 2,
+          barColor: '#26B99A'
+        });
+
+        $(".sparkline22").sparkline([2, 4, 3, 4, 7, 5, 4, 3, 5, 6, 2, 4, 3, 4, 5, 4, 5, 4, 3, 4, 6], {
+          type: 'line',
+          height: '40',
+          width: '200',
+          lineColor: '#26B99A',
+          fillColor: '#ffffff',
+          lineWidth: 3,
+          spotColor: '#34495E',
+          minSpotColor: '#34495E'
+        });
+      });
+    </script>
+
+
+    <!-- jVectorMap -->
+    <script src="js/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="js/jquery-jvectormap-us-aea-en.js"></script>
+    <script src="js/gdp-data.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('#world-map-gdp').vectorMap({
+          map: 'world_mill_en',
+          backgroundColor: 'transparent',
+          zoomOnScroll: false,
+          series: {
+            regions: [{
+              values: gdpData,
+              scale: ['#E6F2F0', '#149B7E'],
+              normalizeFunction: 'polynomial'
+            }]
+          },
+          onRegionTipShow: function(e, el, code) {
+            el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
+          }
+        });
+      });
+    </script>
+    <!-- /jVectorMap -->
+
+    <!-- Skycons -->
+    <script>
+      $(document).ready(function() {
+        var icons = new Skycons({
+            "color": "#73879C"
+          }),
+          list = [
+            "clear-day", "clear-night", "partly-cloudy-day",
+            "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+            "fog"
+          ],
+          i;
+
+        for (i = list.length; i--;)
+          icons.set(list[i], list[i]);
+
+        icons.play();
+      });
+    </script>
+    <!-- /Skycons -->
+
+    <!-- Doughnut Chart -->
+    <script>
+      $(document).ready(function(){
+
+
+        var cb = function(start, end, label) {
+          $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        };
+
+        $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+        $('#reportrange').daterangepicker(optionSet1, cb);
+        $('#reportrange').on('show.daterangepicker', function() {
+          console.log("show event fired");
+        });
+        $('#reportrange').on('hide.daterangepicker', function() {
+          console.log("hide event fired");
+        });
+        $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+          console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+        });
+        $('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
+          console.log("cancel event fired");
+        });
+        $('#options1').click(function() {
+          $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
+        });
+        $('#options2').click(function() {
+          $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
+        });
+        $('#destroy').click(function() {
+          $('#reportrange').data('daterangepicker').remove();
+        });
+      });
+    </script>
+    <!-- /Doughnut Chart -->
+    <!-- bootstrap-daterangepicker -->
+    <script>
+      $(document).ready(function() {
+        var cb = function(start, end, label) {
+          console.log(start.toISOString(), end.toISOString(), label);
+          $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        };
+
+        var optionSet1 = {
+          startDate: moment().subtract(29, 'days'),
+          endDate: moment(),
+          minDate: '01/01/2012',
+          maxDate: '12/31/2015',
+          dateLimit: {
+            days: 60
+          },
+          showDropdowns: true,
+          showWeekNumbers: true,
+          timePicker: false,
+          timePickerIncrement: 1,
+          timePicker12Hour: true,
+          ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          opens: 'left',
+          buttonClasses: ['btn btn-default'],
+          applyClass: 'btn-small btn-primary',
+          cancelClass: 'btn-small',
+          format: 'MM/DD/YYYY',
+          separator: ' to ',
+          locale: {
+            applyLabel: 'Submit',
+            cancelLabel: 'Clear',
+            fromLabel: 'From',
+            toLabel: 'To',
+            customRangeLabel: 'Custom',
+            daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+            monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            firstDay: 1
+          }
+        };
+        $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+        $('#reportrange').daterangepicker(optionSet1, cb);
+        $('#reportrange').on('show.daterangepicker', function() {
+          console.log("show event fired");
+        });
+        $('#reportrange').on('hide.daterangepicker', function() {
+          console.log("hide event fired");
+        });
+        $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+          console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+        });
+        $('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
+          console.log("cancel event fired");
+        });
+        $('#options1').click(function() {
+          $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
+        });
+        $('#options2').click(function() {
+          $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
+        });
+        $('#destroy').click(function() {
+          $('#reportrange').data('daterangepicker').remove();
+        });
+      });
+    </script>
+    <!-- /bootstrap-daterangepicker -->
+
+    <!-- gauge.js -->
+    <script>
+      var opts = {
+          lines: 12,
+          angle: 0,
+          lineWidth: 0.4,
+          pointer: {
+              length: 0.75,
+              strokeWidth: 0.042,
+              color: '#1D212A'
+          },
+          limitMax: 'false',
+          colorStart: '#1ABC9C',
+          colorStop: '#1ABC9C',
+          strokeColor: '#F0F3F3',
+          generateGradient: true
+      };
+      var target = document.getElementById('foo'),
+          gauge = new Gauge(taget).setOptions(opts);
+
+      gauge.maxValue = 6000;
+      gauge.animationSpeed = 32;
+      gauge.set(3200);
+      gauge.setTextField(document.getElementById("gauge-text"));
+    </script>
+    <!-- /gauge.js -->
+  </body>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-23581568-13', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+</html>
