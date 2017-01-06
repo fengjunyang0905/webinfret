@@ -23,13 +23,17 @@ $(function(){
         clearTimeout(typingTimer);
     });
 
+    $('input[type=radio][name=SearchWhat]').change(function() {
+        searchTweets();
+    });
+
     //user is "finished typing," do something
     function searchTweets () {
         if($input.val() != ""){
             $("#searchResults").html('<li class="list-group-item"><i class="fa fa-spinner fa-spin"></i> Loading</li></ul>');
             $.getJSON(api_root + "searchTweets.php?query=" + encodeURIComponent($input.val()), function( data ) {
                 $("#searchResults").html("");
-                $("#searchResults").append('<li class="list-group-item">Number of results: ' + data.length + '</li>');
+                $("#searchResults").append('<li class="list-group-item">Number of results: ' + data.length + ' (Query: ' + $('input[name=SearchWhat]:checked').val() + ')</li>');
                 for(var tweet in data){
                     $("#searchResults").append('<li class="list-group-item">' + tweet + ': User: ' + data[tweet]["userid"] + ', text: ' + data[tweet]["text"] + '</li>');
                 }
@@ -88,6 +92,7 @@ $(function(){
         }
     };
 
+    //$.getJSON(api_root + "api/tweet_count_week/?start=2016%2040&end=2016%2041", function( data ) {
     $.getJSON(api_root + "numberOfTweets.php", function( data ) {
         var nrtweets = [];
         for(var point in data){
