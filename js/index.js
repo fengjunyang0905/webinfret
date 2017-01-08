@@ -27,36 +27,95 @@ $(function(){
         searchTweets();
     });
 
+    function appendArticle(title, published_date, description, link){
+        //adds an article to the seach results
+        $("#searchResults").append('<li class="list-group-item">' +
+            '<a href="' + link + '" target="_blank" style="font-weight: bold;">' + title + '</a><br>' +
+            '<div style="font-size: 11px;">Published on: <span style="color: #1c4acc">' + published_date + '</span></div>' +
+            '<div style="width: 900px;">' + description + '</div>' +
+            '<a href="' + link + '" target="_blank" style="color: #43a016; font-size: 11px;">' + link + '</a></li>');
+    }
+
+    function appendTweet(tweet,userid,text){
+        $("#searchResults").append('<li class="list-group-item">' + tweet + ': User: ' + userid + ', text: ' + text + '</li>');
+    }
+
+    var curSearch, curQuery, curStartingPoint, hasMore;
+
     //user is "finished typing," do something
     function searchTweets () {
+        hasMore = true;
+        curQuery = $input.val();
+        curStartingPoint = 0;
+
         if($input.val() != ""){
+
+            //show loading icon
             $("#searchResults").html('<li class="list-group-item"><i class="fa fa-spinner fa-spin"></i> Loading</li></ul>');
 
-            $.getJSON(api_root + "search.php?search=" +  $('input[name=SearchWhat]:checked').val() + "&query=" + encodeURIComponent($input.val()), function( data ) {
-                $("#searchResults").html("");
-                $("#searchResults").append('<li class="list-group-item">Number of results: ' + data.length + ' (Query: ' + $('input[name=SearchWhat]:checked').val() + ')</li>');
-                if($('input[name=SearchWhat]:checked').val() == "articles"){
-                    for(var result in data){
-                        $("#searchResults").append('<li class="list-group-item">' +
-                            '<a href="' + data[result]["link"] + '" target="_blank" style="font-weight: bold;">' + data[result]["title"] + '</a><br>' +
-                            '<div style="font-size: 11px;">Published on: <span style="color: #1c4acc">' + data[result]["published_date"] + '</span></div>' +
-                            '<div style="width: 900px;">' + data[result]["description"] + '</div>' +
-                            '<a href="' + data[result]["link"] + '" target="_blank" style="color: #43a016; font-size: 11px;">' + data[result]["link"] + '</a></li>');
+            if($('input[name=SearchWhat]:checked').val() == "articles") {
+                //article search
+                curSearch = "getArticles";//
+                $.getJSON(api_root + curSearch + "?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( data ) {
+                    curSearch = "articlesearch.php";
+                    $("#searchResults").html("");
+                    $("#searchResults").append('<li class="list-group-item">Number of results: ' + data.length + ' (Query: ' + $('input[name=SearchWhat]:checked').val() + ')</li>');
+                    for (var result in data) {
+                        appendArticle(data[result]["title"],data[result]["published_date"],data[result]["description"],data[result]["link"]);
                     }
+                });
+            }else{
+                //tweet search
+                curSearch = "getTweets";//
 
-                }else{
+                //$.getJSON(api_root + "getTweets?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( data ) {
+                $.getJSON(api_root + curSearch + "?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( data ) {
+
+                    $("#searchResults").html("");
+                    $("#searchResults").append('<li class="list-group-item">Number of results: ' + data.length + ' (Query: ' + $('input[name=SearchWhat]:checked').val() + ')</li>');
                     for(var tweet in data){
-                        $("#searchResults").append('<li class="list-group-item">' + tweet + ': User: ' + data[tweet]["userid"] + ', text: ' + data[tweet]["text"] + '</li>');
+                        appendTweet(tweet,data[tweet]["userid"],data[tweet]["text"]);
                     }
-                }
-                //$("#searchResults").append("<div>" + JSON.stringify(data) + "</div>");
-            });
-
+                });
+            }
         }else{
             $("#searchResults").html('<li class="list-group-item">Please enter a search query to get results.</li>');
         }
-
     }
+
+
+    var isLoading = false;
+    //load more search results if needed
+    $( "#searchResultsDiv" ).scroll(function() {
+        if($( "#searchResults" ).height()  - $( "#searchResultsDiv" ).scrollTop()  < 1000 && hasMore && !isLoading){
+            isLoading = true;
+            curStartingPoint++;
+
+            $.getJSON(api_root + curSearch + "?query=" +  encodeURIComponent($input.val()) + "&startingPoint=" + curStartingPoint, function( data ) {
+                isLoading = false;
+
+                if(Object.keys(data).length == 0){
+                    //done with all results
+                    hasMore = false;
+                    $("#searchResults").append('<li class="list-group-item">No more results</li>');
+                }
+
+                if(curSearch.indexOf("article") != -1){
+                    //load article results
+                    for (var result in data) {
+                        appendArticle(data[result]["title"],data[result]["published_date"],data[result]["description"],data[result]["link"]);
+                    }
+                }else {
+                    //load tweet results
+                    for(var tweet in data){
+                        appendTweet(tweet,data[tweet]["userid"],data[tweet]["text"]);
+                    }
+                }
+            });
+        }
+            //todo
+            //$( "#searchResults" ).append( '<li class="list-group-item">scroll: ' + $( "#searchResultsDiv" ).scrollTop() + ' | ' +  $( "#searchResults" ).height() + '</li>' );
+    });
 
     //graph: number of tweets
     var numberOfTweetsOptions = {
