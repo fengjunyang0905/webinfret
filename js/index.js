@@ -55,7 +55,7 @@ $(function(){
 
             if($('input[name=SearchWhat]:checked').val() == "articles") {
                 //article search
-                curSearch = "articlesearch.php";//getArticles
+                curSearch = "getArticles";//
                 $.getJSON(api_root + curSearch + "?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( data ) {
                     curSearch = "articlesearch.php";
                     $("#searchResults").html("");
@@ -66,7 +66,7 @@ $(function(){
                 });
             }else{
                 //tweet search
-                curSearch = "tweetsearch.php";//getTweets
+                curSearch = "getTweets";//
 
                 //$.getJSON(api_root + "getTweets?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( data ) {
                 $.getJSON(api_root + curSearch + "?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( data ) {
