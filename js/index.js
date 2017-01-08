@@ -27,6 +27,14 @@ $(function(){
         searchTweets();
     });
 
+    function showLoad(){
+        $("#searchResults").append('<li class="list-group-item" id="loading"><i class="fa fa-spinner fa-spin"></i> Loading</li></ul>');
+    }
+
+    function hideLoad(){
+        $( "#loading" ).remove();
+    }
+
     function appendArticle(title, published_date, description, link){
         //adds an article to the seach results
         $("#searchResults").append('<li class="list-group-item">' +
@@ -50,29 +58,27 @@ $(function(){
 
         if($input.val() != ""){
 
-            //show loading icon
-            $("#searchResults").html('<li class="list-group-item"><i class="fa fa-spinner fa-spin"></i> Loading</li></ul>');
+            //clear list and show loading icon
+            $("#searchResults").html("");
+            showLoad();
 
             if($('input[name=SearchWhat]:checked').val() == "articles") {
                 //article search
-                curSearch = "getArticles";//
+                curSearch = "getArticles";//articlesearch.php
                 $.getJSON(api_root + curSearch + "?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( data ) {
-                    curSearch = "articlesearch.php";
-                    $("#searchResults").html("");
-                    $("#searchResults").append('<li class="list-group-item">Number of results: ' + data.length + ' (Query: ' + $('input[name=SearchWhat]:checked').val() + ')</li>');
+                    //data received
+                    hideLoad();
                     for (var result in data) {
                         appendArticle(data[result]["title"],data[result]["published_date"],data[result]["description"],data[result]["link"]);
                     }
                 });
             }else{
                 //tweet search
-                curSearch = "getTweets";//
+                curSearch = "getTweets";//tweetsearch.php
 
-                //$.getJSON(api_root + "getTweets?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( data ) {
                 $.getJSON(api_root + curSearch + "?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( data ) {
-
-                    $("#searchResults").html("");
-                    $("#searchResults").append('<li class="list-group-item">Number of results: ' + data.length + ' (Query: ' + $('input[name=SearchWhat]:checked').val() + ')</li>');
+                    //data receieved
+                    hideLoad();
                     for(var tweet in data){
                         appendTweet(tweet,data[tweet]["userid"],data[tweet]["text"]);
                     }
@@ -88,16 +94,17 @@ $(function(){
     //load more search results if needed
     $( "#searchResultsDiv" ).scroll(function() {
         if($( "#searchResults" ).height()  - $( "#searchResultsDiv" ).scrollTop()  < 1000 && hasMore && !isLoading){
-            isLoading = true;
+            showLoad();
+            isLoading = true;//variable to prevent multiple loads at the same time
             curStartingPoint++;
 
             $.getJSON(api_root + curSearch + "?query=" +  encodeURIComponent($input.val()) + "&startingPoint=" + curStartingPoint, function( data ) {
                 isLoading = false;
+                hideLoad();
 
                 if(Object.keys(data).length == 0){
                     //done with all results
                     hasMore = false;
-                    $("#searchResults").append('<li class="list-group-item">No more results</li>');
                 }
 
                 if(curSearch.indexOf("article") != -1){
@@ -113,8 +120,6 @@ $(function(){
                 }
             });
         }
-            //todo
-            //$( "#searchResults" ).append( '<li class="list-group-item">scroll: ' + $( "#searchResultsDiv" ).scrollTop() + ' | ' +  $( "#searchResults" ).height() + '</li>' );
     });
 
     //graph: number of tweets
