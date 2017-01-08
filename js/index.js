@@ -85,10 +85,35 @@ $(function(){
 
     //load more search results if needed
     $( "#searchResultsDiv" ).scroll(function() {
-        if($( "#searchResults" ).height()  - $( "#searchResultsDiv" ).scrollTop()  < 1000 && hasMore){
+        var isloading = false;
+        if($( "#searchResults" ).height()  - $( "#searchResultsDiv" ).scrollTop()  < 1000 && hasMore && !isloading){
+            isLoading = true;
+            curStartingPoint++;
+            $.getJSON(api_root + curSearch + "?query=" +  encodeURIComponent($input.val()) + "&startingPoint=" + curStartingPoint, function( data ) {
+                isloading = false;
+
+                if(Object.keys(data).length == 0){
+                    //done with all results
+                    hasMore = false;
+                    $("#searchResults").append('<li class="list-group-item">No more results</li>');
+                }
+                $("#searchResults").append('<li class="list-group-item">startingpoint: ' + curStartingPoint + '</li>');
+
+                if(curSearch.indexOf("article") != -1){
+                    //load article results
+                    for (var result in data) {
+                        appendArticle(data[result]["title"],data[result]["published_date"],data[result]["description"],data[result]["link"]);
+                    }
+                }else {
+                    //load tweet results
+                    for(var tweet in data){
+                        appendTweet(tweet,data[tweet]["userid"],data[tweet]["text"]);
+                    }
+                }
+            });
+        }
             //todo
             //$( "#searchResults" ).append( '<li class="list-group-item">scroll: ' + $( "#searchResultsDiv" ).scrollTop() + ' | ' +  $( "#searchResults" ).height() + '</li>' );
-        }
     });
 
     //graph: number of tweets
