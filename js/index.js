@@ -29,11 +29,15 @@ $(function(){
         searchTweets();
     });
 
+    var isLoading = false;//variable used to block loading request if we're already loading
+
     function showLoad(){
+        isLoading = true;
         $("#searchResults").append('<li class="list-group-item" id="loading"><i class="fa fa-spinner fa-spin"></i> Loading</li></ul>');
     }
 
     function hideLoad(){
+        isLoading = false;
         $( "#loading" ).remove();
     }
 
@@ -50,7 +54,7 @@ $(function(){
         $("#searchResults").append('<li class="list-group-item">' + tweet + ': User: ' + userid + ', text: ' + text + '</li>');
     }
 
-    var curSearch, curQuery, curStartingPoint, hasMore, isLoading = false;
+    var curSearch, curQuery, curStartingPoint, hasMore;
 
     //user is "finished typing," do something
     function searchTweets () {
@@ -70,7 +74,6 @@ $(function(){
                 curSearch = api_urls[0];
                 $.getJSON(api_root + curSearch + "?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( data ) {
                     //data received
-                    isLoading = false;
                     hideLoad();
                     for (var result in data) {
                         appendArticle(data[result]["title"],data[result]["published_date"],data[result]["description"],data[result]["link"]);
@@ -82,7 +85,6 @@ $(function(){
 
                 $.getJSON(api_root + curSearch + "?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( data ) {
                     //data receieved
-                    isLoading = false;
                     hideLoad();
                     for(var tweet in data){
                         appendTweet(tweet,data[tweet]["userid"],data[tweet]["text"]);
@@ -96,13 +98,11 @@ $(function(){
 
     //load more search results if needed
     $( "#searchResultsDiv" ).scroll(function() {
-        if($( "#searchResults" ).height()  - $( "#searchResultsDiv" ).scrollTop()  < 1000 && hasMore && !isLoading){
+        if($( "#searchResults" ).height()  - $( "#searchResultsDiv" ).scrollTop()  < 1000 && hasMore && !isLoading){//only load more if there are more and we're not loading anything at this moment.
             showLoad();
-            isLoading = true;//variable to prevent multiple loads at the same time
             curStartingPoint++;
 
             $.getJSON(api_root + curSearch + "?query=" +  encodeURIComponent($input.val()) + "&startingPoint=" + curStartingPoint, function( data ) {
-                isLoading = false;
                 hideLoad();
 
                 if(Object.keys(data).length == 0){
