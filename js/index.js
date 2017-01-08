@@ -40,13 +40,13 @@ $(function(){
         $("#searchResults").append('<li class="list-group-item">' + tweet + ': User: ' + userid + ', text: ' + text + '</li>');
     }
 
-    var curSearch, curQuery, curPage, hasMore;
+    var curSearch, curQuery, curStartingPoint, hasMore;
 
     //user is "finished typing," do something
     function searchTweets () {
         hasMore = true;
         curQuery = $input.val();
-        curPage = 0;
+        curStartingPoint = 0;
 
         if($input.val() != ""){
 
@@ -55,8 +55,8 @@ $(function(){
 
             if($('input[name=SearchWhat]:checked').val() == "articles") {
                 //article search
-                //$.getJSON(api_root + "getArticles?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( data ) {
-                $.getJSON(api_root + "articlesearch.php?query=" +  encodeURIComponent($input.val()) + "&page=0", function( data ) {
+                curSearch = "articlesearch.php";//getArticles
+                $.getJSON(api_root + curSearch + "?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( data ) {
                     curSearch = "articlesearch.php";
                     $("#searchResults").html("");
                     $("#searchResults").append('<li class="list-group-item">Number of results: ' + data.length + ' (Query: ' + $('input[name=SearchWhat]:checked').val() + ')</li>');
@@ -66,9 +66,11 @@ $(function(){
                 });
             }else{
                 //tweet search
+                curSearch = "tweetsearch.php";//getTweets
+
                 //$.getJSON(api_root + "getTweets?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( data ) {
-                $.getJSON(api_root + "tweetsearch.php?query=" +  encodeURIComponent($input.val()) + "&page=0", function( data ) {
-                    curSearch = "tweetsearch.php";
+                $.getJSON(api_root + curSearch + "?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( data ) {
+
                     $("#searchResults").html("");
                     $("#searchResults").append('<li class="list-group-item">Number of results: ' + data.length + ' (Query: ' + $('input[name=SearchWhat]:checked').val() + ')</li>');
                     for(var tweet in data){
