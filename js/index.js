@@ -27,31 +27,38 @@ $(function(){
         searchTweets();
     });
 
+
     //user is "finished typing," do something
     function searchTweets () {
+
         if($input.val() != ""){
+
             $("#searchResults").html('<li class="list-group-item"><i class="fa fa-spinner fa-spin"></i> Loading</li></ul>');
 
-            $.getJSON(api_root + "search.php?search=" +  $('input[name=SearchWhat]:checked').val() + "&query=" + encodeURIComponent($input.val()), function( data ) {
-                $("#searchResults").html("");
-                $("#searchResults").append('<li class="list-group-item">Number of results: ' + data.length + ' (Query: ' + $('input[name=SearchWhat]:checked').val() + ')</li>');
-                if($('input[name=SearchWhat]:checked').val() == "articles"){
-                    for(var result in data){
+
+            if($('input[name=SearchWhat]:checked').val() == "articles") {
+                //article search
+                $.getJSON(api_root + "articlesearch.php?query=" +  encodeURIComponent($input.val()) + "&page=0", function( data ) {
+                    $("#searchResults").html("");
+                    $("#searchResults").append('<li class="list-group-item">Number of results: ' + data.length + ' (Query: ' + $('input[name=SearchWhat]:checked').val() + ')</li>');
+                    for (var result in data) {
                         $("#searchResults").append('<li class="list-group-item">' +
                             '<a href="' + data[result]["link"] + '" target="_blank" style="font-weight: bold;">' + data[result]["title"] + '</a><br>' +
                             '<div style="font-size: 11px;">Published on: <span style="color: #1c4acc">' + data[result]["published_date"] + '</span></div>' +
                             '<div style="width: 900px;">' + data[result]["description"] + '</div>' +
                             '<a href="' + data[result]["link"] + '" target="_blank" style="color: #43a016; font-size: 11px;">' + data[result]["link"] + '</a></li>');
                     }
-
-                }else{
+                });
+            }else{
+                //tweet search
+                $.getJSON(api_root + "tweetsearch.php?query=" +  encodeURIComponent($input.val()) + "&page=0", function( data ) {
+                    $("#searchResults").html("");
+                    $("#searchResults").append('<li class="list-group-item">Number of results: ' + data.length + ' (Query: ' + $('input[name=SearchWhat]:checked').val() + ')</li>');
                     for(var tweet in data){
                         $("#searchResults").append('<li class="list-group-item">' + tweet + ': User: ' + data[tweet]["userid"] + ', text: ' + data[tweet]["text"] + '</li>');
                     }
-                }
-                //$("#searchResults").append("<div>" + JSON.stringify(data) + "</div>");
-            });
-
+                });
+            }
         }else{
             $("#searchResults").html('<li class="list-group-item">Please enter a search query to get results.</li>');
         }
