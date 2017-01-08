@@ -4,6 +4,8 @@
 $(function(){
 
     var api_root = "api/";
+    var api_urls = new Array("getArticles","getTweets");
+    //var api_urls = new Array("articlesearch.php","tweetsearch.php");
 
     //Tweet search
 
@@ -48,7 +50,7 @@ $(function(){
         $("#searchResults").append('<li class="list-group-item">' + tweet + ': User: ' + userid + ', text: ' + text + '</li>');
     }
 
-    var curSearch, curQuery, curStartingPoint, hasMore;
+    var curSearch, curQuery, curStartingPoint, hasMore, isLoading = false;
 
     //user is "finished typing," do something
     function searchTweets () {
@@ -60,13 +62,15 @@ $(function(){
 
             //clear list and show loading icon
             $("#searchResults").html("");
+            isLoading = true;
             showLoad();
 
             if($('input[name=SearchWhat]:checked').val() == "articles") {
                 //article search
-                curSearch = "getArticles";//articlesearch.php
+                curSearch = api_urls[0];
                 $.getJSON(api_root + curSearch + "?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( data ) {
                     //data received
+                    isLoading = false;
                     hideLoad();
                     for (var result in data) {
                         appendArticle(data[result]["title"],data[result]["published_date"],data[result]["description"],data[result]["link"]);
@@ -74,10 +78,11 @@ $(function(){
                 });
             }else{
                 //tweet search
-                curSearch = "getTweets";//tweetsearch.php
+                curSearch = api_urls[1];
 
                 $.getJSON(api_root + curSearch + "?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( data ) {
                     //data receieved
+                    isLoading = false;
                     hideLoad();
                     for(var tweet in data){
                         appendTweet(tweet,data[tweet]["userid"],data[tweet]["text"]);
@@ -89,8 +94,6 @@ $(function(){
         }
     }
 
-
-    var isLoading = false;
     //load more search results if needed
     $( "#searchResultsDiv" ).scroll(function() {
         if($( "#searchResults" ).height()  - $( "#searchResultsDiv" ).scrollTop()  < 1000 && hasMore && !isLoading){
