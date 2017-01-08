@@ -83,21 +83,22 @@ $(function(){
         }
     }
 
+
+    var isLoading = false;
     //load more search results if needed
     $( "#searchResultsDiv" ).scroll(function() {
-        var isloading = false;
-        if($( "#searchResults" ).height()  - $( "#searchResultsDiv" ).scrollTop()  < 1000 && hasMore && !isloading){
+        if($( "#searchResults" ).height()  - $( "#searchResultsDiv" ).scrollTop()  < 1000 && hasMore && !isLoading){
             isLoading = true;
             curStartingPoint++;
+
             $.getJSON(api_root + curSearch + "?query=" +  encodeURIComponent($input.val()) + "&startingPoint=" + curStartingPoint, function( data ) {
-                isloading = false;
+                isLoading = false;
 
                 if(Object.keys(data).length == 0){
                     //done with all results
                     hasMore = false;
                     $("#searchResults").append('<li class="list-group-item">No more results</li>');
                 }
-                $("#searchResults").append('<li class="list-group-item">startingpoint: ' + curStartingPoint + '</li>');
 
                 if(curSearch.indexOf("article") != -1){
                     //load article results
