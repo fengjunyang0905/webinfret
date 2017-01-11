@@ -15,6 +15,8 @@ results:
     - Related articles (0/1/2)
  */
 sleep(1);
+include("tweetsexample.json");
+die();
 
 $return = array(
     array("userid" => 1001, "text" => "tweet 1 content", "rumor" => "No", "certaintity" => 0.67, "articles" => array("http://www.washingtontimes.com/news/2016/oct/17/the-russian-enigma-and-the-us-election/")),

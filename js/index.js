@@ -4,8 +4,8 @@
 $(function(){
 
     var api_root = "api/";
-    var api_urls = new Array("getArticles","getTweets");
-    //var api_urls = new Array("articlesearch.php","tweetsearch.php");
+    //var api_urls = new Array("getArticles","getTweets");
+    var api_urls = new Array("articlesearch.php","tweetsearch.php");
 
     //Tweet search
 
@@ -50,8 +50,21 @@ $(function(){
             '<a href="' + link + '" target="_blank" style="color: #43a016; font-size: 11px;">' + link + '</a></li>');
     }
 
-    function appendTweet(tweet,userid,text){
-        $("#searchResults").append('<li class="list-group-item">' + tweet + ': User: ' + userid + ', text: ' + text + '</li>');
+    function appendTweet(tweet,timestamp,userid,text,tweetID,data){
+        timestamp = Math.floor(timestamp / 1000);//to enforce 3 zeros at the end
+        var date = new Date(timestamp * 1000);//timestamp
+        var dateString = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDay() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+        tweetID = tweetID.substring(1);//remove the t from the tweetID
+        var link = "https://twitter.com/statuses/" + tweetID;
+        if($.isNumeric(timestamp) && $.isNumeric(tweetID)){
+            //only proceed if both timestamp or tweetID are numberic, otherwise data is flawed (this happens sometimes)
+            $("#searchResults").append('<li class="list-group-item">' +
+                '<div style="font-size: 11px;">Tweeted on: <span style="color: #1c4acc">' + dateString + '</span></div>' +
+                '<div style="width: 900px;">' + userid + ': ' +  text + '</div>' +
+                '<a href="' + link + '" target="_blank" style="color: #43a016; font-size: 11px;">' + link + '</a></li>' +
+                //JSON.stringify(data) +
+                '</li>');
+        }
     }
 
     var curSearch, curQuery, curStartingPoint, hasMore;
@@ -87,7 +100,7 @@ $(function(){
                     //data receieved
                     hideLoad();
                     for(var tweet in data){
-                        appendTweet(tweet,data[tweet]["userid"],data[tweet]["text"]);
+                        appendTweet(tweet,data[tweet]["timestamp"],data[tweet]["userID"],data[tweet]["fullText"],data[tweet]["tweetID"],data[tweet]);
                     }
                 });
             }
@@ -118,7 +131,7 @@ $(function(){
                 }else {
                     //load tweet results
                     for(var tweet in data){
-                        appendTweet(tweet,data[tweet]["userid"],data[tweet]["text"]);
+                        appendTweet(tweet,data[tweet]["timestamp"],data[tweet]["userID"],data[tweet]["fullText"],data[tweet]["tweetID"],data[tweet]);
                     }
                 }
             });
