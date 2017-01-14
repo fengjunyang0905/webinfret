@@ -63,9 +63,8 @@ $(function(){
             $("#searchResults").append('</li>');
 
 
-
             for(var tweet in data["tweets"]){
-                //TODO: info per tweet ophalen vanuit API
+                //IDF sum:  data["tweets"][tweet]["attributes"][0]["value"]
                 $.getJSON(api_root + "getTweetsId.php?id=" +  encodeURIComponent(data["tweets"][tweet]["tweet"]), function( tweet ) {
                     if(tweet.length > 0){
                         //skip empty results
@@ -74,11 +73,10 @@ $(function(){
                         }
                         //todo: decent layout
                         tweet = tweet[0];
-                        tweet["tweetID"] = tweet["tweetID"].substring(1);//remove the t from the tweetID
-                        var link = "https://twitter.com/statuses/" + tweet["tweetID"];
+                        var link = "https://twitter.com/statuses/" + tweet["tweetID"].substring(1);
 
                         $('#cluster_' + data["article"]).append(
-                            '<a href="' + link + '" target="_blank">' + tweet["fullText"] + "</a><br>"
+                            '<b>Tweet:</b> <a href="' + link + '" target="_blank">' + tweet["fullText"] + "</a><br>"
                         );
                     }
                 });
