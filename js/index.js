@@ -55,7 +55,7 @@ $(function(){
         }
 
         //article info ophalen
-        $.getJSON(api_root + "getArticles.php?id=" +  encodeURIComponent(data["article"]), function( article ) {
+        $.getJSON(api_root + "getArticlesId.php?id=" +  encodeURIComponent(data["article"]), function( article ) {
             //data received
             var articleLink = '<a href="' + article[0]['link'] + '" target="_blank">' + article[0]['title'] + '</a>';
             //articleLink = JSON.stringify(article[0]);
@@ -163,7 +163,7 @@ $(function(){
                     hasMore = false;
                 }
 
-                if(curSearch.indexOf("clusters") != -1) {
+                if(curSearch.indexOf("cluster") != -1) {
                     //load clusters
                     data = data['results'];
                     for (var cluster in data) {
