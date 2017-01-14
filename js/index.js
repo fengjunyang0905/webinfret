@@ -44,7 +44,22 @@ $(function(){
 
     function appendCluster(data){
         //adds a cluster
-        $("#searchResults").append('<li class="list-group-item">' + JSON.stringify(data) + '</li>');
+        //JSON.stringify(data)
+        var tweets = "";
+
+        for(var tweet in data["tweets"]){
+            tweets = tweets +
+                'Tweet: ' + data["tweets"][tweet]["tweet"] + ", " +
+                'idf_sum: ' + data["tweets"][tweet]["attributes"][0]["value"] + "<br>";
+        }
+
+        $("#searchResults").append('<li class="list-group-item">' +
+            'Article: ' + data["article"] + '<br>' +
+            'Rumor ratio: ' + data["rumor_ration"] + '<br>' +
+            'Url: <a href="' +  data["url"] + '" target="_blank">' +  data["url"] + '</a><br>' +
+            'Tweets: <div style="margin: 0 0 0 50px">' + tweets + '</div>');
+
+        $("#searchResults").append('</li>');
 
     }
 
@@ -141,7 +156,14 @@ $(function(){
                     hasMore = false;
                 }
 
-                if(curSearch.indexOf("article") != -1){
+                if(curSearch.indexOf("clusters") != -1) {
+                    //load clusters
+                    data = data['results'];
+                    for (var cluster in data) {
+                        appendCluster(data[cluster]);
+                    }
+
+                }else if(curSearch.indexOf("article") != -1){
                     //load article results
                     for (var result in data) {
                         appendArticle(data[result]["title"],data[result]["published_date"],data[result]["description"],data[result]["link"]);
