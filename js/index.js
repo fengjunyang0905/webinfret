@@ -50,7 +50,7 @@ $(function(){
         for(var tweet in data["tweets"]){
             //TODO: info per tweet ophalen vanuit API
             tweets = tweets +
-                'Tweet: ' + data["tweets"][tweet]["tweet"] + ", " +
+                'Tweet: <a href="http://localhost/web-inf-retrieval-frontend/api/getTweetsId.php?id=' + data["tweets"][tweet]["tweet"] + '">' + data["tweets"][tweet]["tweet"] + "</a>, " +
                 'idf_sum: ' + data["tweets"][tweet]["attributes"][0]["value"] + "<br>";
         }
 
