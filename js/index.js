@@ -4,8 +4,9 @@
 $(function(){
 
     var api_root = "api/";
+    //api urls for clusters, articles and tweet searches
     //var api_urls = new Array("getArticles","getTweets");
-    var api_urls = new Array("articlesearch.php","tweetsearch.php");
+    var api_urls = new Array("tweet_cluster.php","articlesearch.php","tweetsearch.php");
 
     //Tweet search
 
@@ -39,6 +40,12 @@ $(function(){
     function hideLoad(){
         isLoading = false;
         $( "#loading" ).remove();
+    }
+
+    function appendCluster(data){
+        //adds a cluster
+        $("#searchResults").append('<li class="list-group-item">' + JSON.stringify(data) + '</li>');
+
     }
 
     function appendArticle(title, published_date, description, link){
@@ -82,9 +89,20 @@ $(function(){
             isLoading = true;
             showLoad();
 
-            if($('input[name=SearchWhat]:checked').val() == "articles") {
+            if($('input[name=SearchWhat]:checked').val() == "clusters") {
                 //article search
                 curSearch = api_urls[0];
+                $.getJSON(api_root + curSearch + "?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( data ) {
+                    //data received
+                    hideLoad();
+                    data = data['results'];
+                    for (var cluster in data) {
+                        appendCluster(data[cluster]);
+                    }
+                });
+            }else if($('input[name=SearchWhat]:checked').val() == "articles") {
+                //article search
+                curSearch = api_urls[1];
                 $.getJSON(api_root + curSearch + "?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( data ) {
                     //data received
                     hideLoad();
@@ -92,9 +110,9 @@ $(function(){
                         appendArticle(data[result]["title"],data[result]["published_date"],data[result]["description"],data[result]["link"]);
                     }
                 });
-            }else{
+            }else if($('input[name=SearchWhat]:checked').val() == "tweets") {
                 //tweet search
-                curSearch = api_urls[1];
+                curSearch = api_urls[2];
 
                 $.getJSON(api_root + curSearch + "?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( data ) {
                     //data receieved
