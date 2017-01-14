@@ -47,12 +47,6 @@ $(function(){
         //JSON.stringify(data)
         var tweets = "";
 
-        for(var tweet in data["tweets"]){
-            //TODO: info per tweet ophalen vanuit API
-            tweets = tweets +
-                'Tweet: <a href="http://localhost/web-inf-retrieval-frontend/api/getTweetsId.php?id=' + data["tweets"][tweet]["tweet"] + '">' + data["tweets"][tweet]["tweet"] + "</a>, " +
-                'idf_sum: ' + data["tweets"][tweet]["attributes"][0]["value"] + "<br>";
-        }
 
         //article info ophalen
         $.getJSON(api_root + "getArticlesId.php?id=" +  encodeURIComponent(data["article"]), function( article ) {
@@ -64,9 +58,25 @@ $(function(){
                 'Article: ' + articleLink + '<br>' +
                 'Rumor ratio: ' + data["rumor_ration"] + '<br>' +
                 'Url: <a href="' +  data["url"] + '" target="_blank">' +  data["url"] + '</a><br>' +
-                'Tweets: <div style="margin: 0 0 0 50px">' + tweets + '</div>');
+                'Tweets: <div style="margin: 0 0 0 50px" id="cluster_' + data["article"] + '">Loading</div>');
 
             $("#searchResults").append('</li>');
+
+
+
+            for(var tweet in data["tweets"]){
+                //TODO: info per tweet ophalen vanuit API
+                $.getJSON(api_root + "getTweetsId.php?id=" +  encodeURIComponent(data["tweets"][tweet]["tweet"]), function( tweet ) {
+                    if(tweet.length > 0){
+                        //skip empty results
+                        if($('#cluster_' + data["article"]).html() == "Loading"){
+                            $('#cluster_' + data["article"]).html("");
+                        }
+                        //todo: decent layout
+                        $('#cluster_' + data["article"]).append(JSON.stringify(tweet));
+                    }
+                });
+            }
         });
     }
 
