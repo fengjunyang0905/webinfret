@@ -73,7 +73,13 @@ $(function(){
                             $('#cluster_' + data["article"]).html("");
                         }
                         //todo: decent layout
-                        $('#cluster_' + data["article"]).append(JSON.stringify(tweet));
+                        tweet = tweet[0];
+                        tweet["tweetID"] = tweet["tweetID"].substring(1);//remove the t from the tweetID
+                        var link = "https://twitter.com/statuses/" + tweet["tweetID"];
+
+                        $('#cluster_' + data["article"]).append(
+                            '<a href="' + link + '" target="_blank">' + tweet["fullText"] + "</a><br>"
+                        );
                     }
                 });
             }
