@@ -48,19 +48,26 @@ $(function(){
         var tweets = "";
 
         for(var tweet in data["tweets"]){
+            //TODO: info per tweet ophalen vanuit API
             tweets = tweets +
                 'Tweet: ' + data["tweets"][tweet]["tweet"] + ", " +
                 'idf_sum: ' + data["tweets"][tweet]["attributes"][0]["value"] + "<br>";
         }
 
-        $("#searchResults").append('<li class="list-group-item">' +
-            'Article: ' + data["article"] + '<br>' +
-            'Rumor ratio: ' + data["rumor_ration"] + '<br>' +
-            'Url: <a href="' +  data["url"] + '" target="_blank">' +  data["url"] + '</a><br>' +
-            'Tweets: <div style="margin: 0 0 0 50px">' + tweets + '</div>');
+        //article info ophalen
+        $.getJSON(api_root + "getArticles.php?id=" +  encodeURIComponent(data["article"]), function( article ) {
+            //data received
+            var articleLink = '<a href="' + article[0]['link'] + '" target="_blank">' + article[0]['title'] + '</a>';
+            //articleLink = JSON.stringify(article[0]);
 
-        $("#searchResults").append('</li>');
+            $("#searchResults").append('<li class="list-group-item">' +
+                'Article: ' + articleLink + '<br>' +
+                'Rumor ratio: ' + data["rumor_ration"] + '<br>' +
+                'Url: <a href="' +  data["url"] + '" target="_blank">' +  data["url"] + '</a><br>' +
+                'Tweets: <div style="margin: 0 0 0 50px">' + tweets + '</div>');
 
+            $("#searchResults").append('</li>');
+        });
     }
 
     function appendArticle(title, published_date, description, link){
