@@ -93,7 +93,7 @@ $(function(){
             '<a href="' + link + '" target="_blank" style="color: #43a016; font-size: 11px;">' + link + '</a></li>');
     }
 
-    function appendTweet(tweet,timestamp,userid,text,tweetID,data){
+    function appendTweet(timestamp,text,tweetID){
         timestamp = Math.floor(timestamp / 1000);//to enforce 3 zeros at the end
         var date = new Date(timestamp * 1000);//timestamp
         var dateString = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDay() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
@@ -103,7 +103,7 @@ $(function(){
             //only proceed if both timestamp or tweetID are numberic, otherwise data is flawed (this happens sometimes)
             $("#searchResults").append('<li class="list-group-item">' +
                 '<div style="font-size: 11px;">Tweeted on: <span style="color: #1c4acc">' + dateString + '</span></div>' +
-                '<div style="width: 900px;">' + userid + ': ' +  text + '</div>' +
+                '<div style="width: 900px;">' +  text + '</div>' +
                 '<a href="' + link + '" target="_blank" style="color: #43a016; font-size: 11px;">' + link + '</a></li>' +
                 //JSON.stringify(data) +
                 '</li>');
@@ -154,7 +154,7 @@ $(function(){
                     //data receieved
                     hideLoad();
                     for(var tweet in data){
-                        appendTweet(tweet,data[tweet]["timestamp"],data[tweet]["userID"],data[tweet]["fullText"],data[tweet]["tweetID"],data[tweet]);
+                        appendTweet(data[tweet]["timestamp"],data[tweet]["fullText"],data[tweet]["tweetID"],data[tweet]);
                     }
                 });
             }
@@ -192,7 +192,7 @@ $(function(){
                 }else {
                     //load tweet results
                     for(var tweet in data){
-                        appendTweet(tweet,data[tweet]["timestamp"],data[tweet]["userID"],data[tweet]["fullText"],data[tweet]["tweetID"],data[tweet]);
+                        appendTweet(data[tweet]["timestamp"],data[tweet]["fullText"],data[tweet]["tweetID"]);
                     }
                 }
             });
