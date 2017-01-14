@@ -44,8 +44,44 @@ $(function(){
 
     function appendCluster(data){
         //adds a cluster
-        $("#searchResults").append('<li class="list-group-item">' + JSON.stringify(data) + '</li>');
+        //JSON.stringify(data)
+        var tweets = "";
 
+
+        //article info ophalen
+        $.getJSON(api_root + "getArticlesId.php?id=" +  encodeURIComponent(data["article"]), function( article ) {
+            //data received
+            var articleLink = '<a href="' + article[0]['link'] + '" target="_blank">' + article[0]['title'] + '</a>';
+            //articleLink = JSON.stringify(article[0]);
+
+            $("#searchResults").append('<li class="list-group-item">' +
+                'Article: ' + articleLink + '<br>' +
+                'Rumor ratio: ' + data["rumor_ration"] + '<br>' +
+                'Url: <a href="' +  data["url"] + '" target="_blank">' +  data["url"] + '</a><br>' +
+                'Tweets: <div style="margin: 0 0 0 50px" id="cluster_' + data["article"] + '">Loading</div>');
+
+            $("#searchResults").append('</li>');
+
+
+            for(var tweet in data["tweets"]){
+                //IDF sum:  data["tweets"][tweet]["attributes"][0]["value"]
+                $.getJSON(api_root + "getTweetsId.php?id=" +  encodeURIComponent(data["tweets"][tweet]["tweet"]), function( tweet ) {
+                    if(tweet.length > 0){
+                        //skip empty results
+                        if($('#cluster_' + data["article"]).html() == "Loading"){
+                            $('#cluster_' + data["article"]).html("");
+                        }
+                        //todo: decent layout
+                        tweet = tweet[0];
+                        var link = "https://twitter.com/statuses/" + tweet["tweetID"].substring(1);
+
+                        $('#cluster_' + data["article"]).append(
+                            '<b>Tweet:</b> <a href="' + link + '" target="_blank">' + tweet["fullText"] + "</a><br>"
+                        );
+                    }
+                });
+            }
+        });
     }
 
     function appendArticle(title, published_date, description, link){
@@ -57,7 +93,7 @@ $(function(){
             '<a href="' + link + '" target="_blank" style="color: #43a016; font-size: 11px;">' + link + '</a></li>');
     }
 
-    function appendTweet(tweet,timestamp,userid,text,tweetID,data){
+    function appendTweet(timestamp,text,tweetID){
         timestamp = Math.floor(timestamp / 1000);//to enforce 3 zeros at the end
         var date = new Date(timestamp * 1000);//timestamp
         var dateString = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDay() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
@@ -67,7 +103,7 @@ $(function(){
             //only proceed if both timestamp or tweetID are numberic, otherwise data is flawed (this happens sometimes)
             $("#searchResults").append('<li class="list-group-item">' +
                 '<div style="font-size: 11px;">Tweeted on: <span style="color: #1c4acc">' + dateString + '</span></div>' +
-                '<div style="width: 900px;">' + userid + ': ' +  text + '</div>' +
+                '<div style="width: 900px;">' +  text + '</div>' +
                 '<a href="' + link + '" target="_blank" style="color: #43a016; font-size: 11px;">' + link + '</a></li>' +
                 //JSON.stringify(data) +
                 '</li>');
@@ -118,7 +154,7 @@ $(function(){
                     //data receieved
                     hideLoad();
                     for(var tweet in data){
-                        appendTweet(tweet,data[tweet]["timestamp"],data[tweet]["userID"],data[tweet]["fullText"],data[tweet]["tweetID"],data[tweet]);
+                        appendTweet(data[tweet]["timestamp"],data[tweet]["fullText"],data[tweet]["tweetID"],data[tweet]);
                     }
                 });
             }
@@ -141,7 +177,14 @@ $(function(){
                     hasMore = false;
                 }
 
-                if(curSearch.indexOf("article") != -1){
+                if(curSearch.indexOf("cluster") != -1) {
+                    //load clusters
+                    data = data['results'];
+                    for (var cluster in data) {
+                        appendCluster(data[cluster]);
+                    }
+
+                }else if(curSearch.indexOf("article") != -1){
                     //load article results
                     for (var result in data) {
                         appendArticle(data[result]["title"],data[result]["published_date"],data[result]["description"],data[result]["link"]);
@@ -149,7 +192,7 @@ $(function(){
                 }else {
                     //load tweet results
                     for(var tweet in data){
-                        appendTweet(tweet,data[tweet]["timestamp"],data[tweet]["userID"],data[tweet]["fullText"],data[tweet]["tweetID"],data[tweet]);
+                        appendTweet(data[tweet]["timestamp"],data[tweet]["fullText"],data[tweet]["tweetID"]);
                     }
                 }
             });
