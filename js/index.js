@@ -47,23 +47,27 @@ $(function () {
 
     function appendCluster(data) {
         //adds a cluster
-        //JSON.stringify(data)
+        data = data[0];
         var tweets = "";
 
 
         //article info ophalen
-        //$.getJSON(api_index_root + "getArticlesId?id=" +  encodeURIComponent(data["article"]), function( article ) {
-        //data received
-        //var articleLink = '<a href="' + article[0]['link'] + '" target="_blank">' + article[0]['title'] + '</a>';
-        articleLink = data["link"];
+        $.ajax({
+            dataype: "json",
+            url: api_index_root + "getArticlesId?id=" + encodeURIComponent(data["article"]),
+            success: function (article) {
+                var articleLink = '<a href="' + article[0]['link'] + '" target="_blank">' + article[0]['title'] + '</a>';
 
-        $("#searchResults").append('<li class="list-group-item">' +
-            'Article: ' + articleLink + '<br>' +
-            'Rumor ratio: ' + data["rumor_ration"] + '<br>' +
-            'Url: <a href="' + data["url"] + '" target="_blank">' + data["url"] + '</a><br>' +
-            'Tweets: <div style="margin: 0 0 0 50px" id="cluster_' + data["article"] + '">Loading</div>');
+                $("#searchResults").append('<li class="list-group-item">' +
+                    'Article: ' + articleLink + '<br>' +
+                    'Rumor ratio: ' + data["rumor_ration"] + '<br>' +
+                    'Url: <a href="' + data["url"] + '" target="_blank">' + data["url"] + '</a><br>' +
+                    'Tweets: <div style="margin: 0 0 0 50px" id="cluster_' + data["article"] + '">Loading</div>');
 
-        $("#searchResults").append('</li>');
+                $("#searchResults").append('</li>');
+            },
+            async: false
+        });
 
 
         for (var tweet in data["tweets"]) {
@@ -114,6 +118,22 @@ $(function () {
 
     var curSearch, curQuery, curStartingPoint, hasMore;
 
+
+    function getArticleOrAppendCluster(article) {
+        return function (data) {
+            //$.getJSON(api_php_root + "tweet_cluster.php?id=" + encodeURIComponent(article['id']), function (data) {
+            if (data.data.length == 0) {
+                console.log("No cluster found for article "+article['id']);
+                $.getJSON(api_index_root + "getArticlesId?id=" +  encodeURIComponent(article['id']) + "&startingPoint=0", function( data ) {
+                    data = data[0];
+                    appendArticle(data["title"], data["published_date"], data["description"], data["link"]);
+                });
+            } else {
+                appendCluster(data.data);
+            }
+        };
+    }
+
 //user is "finished typing," do something
     function searchTweets() {
         hasMore = true;
@@ -136,25 +156,18 @@ $(function () {
                     var index;
                     for (index = 0; index < data.length; ++index) {
                         var article = data[index];
-                        // $.getJSON(api_cluster_root + "tweet_cluster/?article=" + encodeURIComponent(article['id']), function (data) {
-                        $.getJSON(api_php_root + "tweet_cluster.php?id=" + encodeURIComponent(article['id']), function (data) {
-                            console.log(data);
-                            if (data.data.length == 0) {
-                                console.log("No cluster found for article");
-                            } else {
-                                appendCluster(data.data);
-                            }
-                        });
+                        $.getJSON(api_cluster_root + "tweet_cluster/?article=" + encodeURIComponent(article['id']), getArticleOrAppendCluster(article));
                     }
                 });
             } else if ($('input[name=SearchWhat]:checked').val() == "articles") {
                 //article search
-                //  $.getJSON(api_index_root + "getArticles?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( data ) {
-                //data received
-                hideLoad();
-                //for (var result in data) {
-                appendArticle(data["title"], data["published_date"], data["description"], data["link"]);
-                // }
+                $.getJSON(api_index_root + "getArticles?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( response ) {
+                    //data received
+                    hideLoad();
+                    response.forEach(function (data) {
+                        appendArticle(data["title"], data["published_date"], data["description"], data["link"]);
+                    });
+                });
             }
         } else if ($('input[name=SearchWhat]:checked').val() == "tweets") {
             //tweet search
