@@ -123,8 +123,8 @@ $(function () {
         return function (data) {
             //$.getJSON(api_php_root + "tweet_cluster.php?id=" + encodeURIComponent(article['id']), function (data) {
             if (data.data.length == 0) {
-                console.log("No cluster found for article "+article['id']);
-                $.getJSON(api_index_root + "getArticlesId?id=" +  encodeURIComponent(article['id']) + "&startingPoint=0", function( data ) {
+                console.log("No cluster found for article " + article['id']);
+                $.getJSON(api_index_root + "getArticlesId?id=" + encodeURIComponent(article['id']) + "&startingPoint=0", function (data) {
                     data = data[0];
                     appendArticle(data["title"], data["published_date"], data["description"], data["link"]);
                 });
@@ -161,24 +161,25 @@ $(function () {
                 });
             } else if ($('input[name=SearchWhat]:checked').val() == "articles") {
                 //article search
-                $.getJSON(api_index_root + "getArticles?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( response ) {
+                $.getJSON(api_index_root + "getArticles?query=" + encodeURIComponent($input.val()) + "&startingPoint=0", function (response) {
                     //data received
                     hideLoad();
                     response.forEach(function (data) {
                         appendArticle(data["title"], data["published_date"], data["description"], data["link"]);
                     });
                 });
-            }
-        } else if ($('input[name=SearchWhat]:checked').val() == "tweets") {
-            //tweet search
-            //curSearch = api_urls[2];
+            } else if ($('input[name=SearchWhat]:checked').val() == "tweets") {
+                //tweet search
+                //curSearch = api_urls[2];
 
-            //$.getJSON(api_index_root + curSearch + "?query=" +  encodeURIComponent($input.val()) + "&startingPoint=0", function( data ) {
-            //data receieved
-            hideLoad();
-            //for(var tweet in data){
-            appendTweet(data["timestamp"], data["fullText"], data["tweetID"], null);
-            //}
+                $.getJSON(api_index_root + "getTweetsNotRaw?query=" + encodeURIComponent($input.val()) + "&startingPoint=0", function (response) {
+                    //data received
+                    hideLoad();
+                    response.forEach(function (data) {
+                        appendTweet(data["timestamp"], data["fullText"], data["tweetID"], null);
+                    });
+                });
+            }
         } else {
             $("#searchResults").html('<li class="list-group-item">Please enter a search query to get results.</li>');
         }
