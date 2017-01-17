@@ -92,6 +92,9 @@ $(function () {
 
     function appendArticle(title, published_date, description, link) {
         //adds an article to the seach results
+        if(description.valueOf() == "No description".valueOf()){
+            description = "";
+        }
         $("#searchResults").append('<li class="list-group-item">' +
             '<a href="' + link + '" target="_blank" style="font-weight: bold;">' + title + '</a><br>' +
             '<div style="font-size: 11px;">Published on: <span style="color: #1c4acc">' + published_date + '</span></div>' +
