@@ -96,7 +96,7 @@ $(function(){
     function appendTweet(timestamp,text,tweetID){
         timestamp = Math.floor(timestamp / 1000);//to enforce 3 zeros at the end
         var date = new Date(timestamp * 1000);//timestamp
-        var dateString = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDay() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+        var dateString = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDay() + " " + date.getHours() + ":" +  (date.getMinutes()<10?'0':'') + date.getMinutes() + ":" + (date.getSeconds()<10?'0':'') + date.getSeconds();
         tweetID = tweetID.substring(1);//remove the t from the tweetID
         var link = "https://twitter.com/statuses/" + tweetID;
         if($.isNumeric(timestamp) && $.isNumeric(tweetID)){
