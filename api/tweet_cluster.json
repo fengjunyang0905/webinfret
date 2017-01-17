@@ -2,7 +2,7 @@
   "count": 66,
   "next": "http://group1.ga:8081/tweet_cluster/?page=2",
   "previous": null,
-  "results": [
+  "data": [
     {
       "id": 67,
       "tweets": [

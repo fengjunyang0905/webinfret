@@ -14,4 +14,5 @@ results:
     - Certaintity
     - Related articles (0/1/2)
  */
+header('Access-Control-Allow-Origin: *');
 echo file_get_contents("http://group1.ga:8080/SampleApp/getTweetsNotRaw?query=" . $_GET['query'] . "&startingPoint=" . $_GET['startingPoint']);
