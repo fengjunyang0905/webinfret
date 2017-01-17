@@ -7,8 +7,8 @@
  */
 header('Access-Control-Allow-Origin: *');
 $return = array(
-    "Yes" => 10,
-    "Unsure" => 30,
-    "No" => 60);
+    "Facts" => 2.555860446883575,
+    "Indicisive" => 19.137593100744805,
+    "Rumors" => 78.30654645237162);
 
 echo json_encode($return);

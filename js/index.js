@@ -304,7 +304,7 @@ $(function () {
         tooltip: true,
         tooltipOpts: {
             defaultTheme: false,
-            content: "%s: %p.0%",
+            content: "%s: %p.2%",
             shifts: {
                 x: 0,
                 y: 20
