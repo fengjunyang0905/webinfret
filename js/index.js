@@ -123,7 +123,7 @@ $(function () {
         return function (data) {
             //$.getJSON(api_php_root + "tweet_cluster.php?id=" + encodeURIComponent(article['id']), function (data) {
             if (data.data.length == 0) {
-                console.log("No cluster found for article " + article['id'] + ' try: r666892219 (iraq rejects turkish role in mosul battle as forces advance toward city) (https://www.washingtonpost.com/news/checkpoint/wp/2016/10/22/iraq-rejects-turkish-role-in-mosul-battle-as-forces-advance-toward-city)');
+                //console.log("No cluster found for article " + article['id'] + ' try: r666892219 (iraq rejects turkish role in mosul battle as forces advance toward city) (https://www.washingtonpost.com/news/checkpoint/wp/2016/10/22/iraq-rejects-turkish-role-in-mosul-battle-as-forces-advance-toward-city)');
                 $.getJSON(api_index_root + "getArticlesId?id=" + encodeURIComponent(article['id']) + "&startingPoint=0", function (data) {
                     data = data[0];
                     appendArticle(data["title"], data["published_date"], data["description"], data["link"]);
